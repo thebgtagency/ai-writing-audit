@@ -57,7 +57,7 @@ references/surface-tells.md   word, punctuation, and formatting catalogue
 references/discourse-tells.md the structural layer, with the measured rates
 references/false-positives.md what not to flag, and confidence by format
 references/formats.md         profiles for nine formats plus a derivation procedure
-references/conflicts.md       fifteen disagreements between the sources, and the rulings
+references/conflicts.md       sixteen disagreements between the sources, and the rulings
 TESTS.md                      ten runs across eight formats, including two controls
 ```
 

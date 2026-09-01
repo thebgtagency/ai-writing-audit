@@ -242,6 +242,25 @@ exactly where that lands: machine text clusters in a shared region defined by th
 oddity, while human text is dispersed. Avoiding every listed tell is a route into that
 cluster, not out of it.
 
+## 16. "Do not soften the signs" versus the gate
+
+**Position A.** An instruction that appears in bold in tooling built on this material: do not
+soften the signs. Report them as the source states them.
+
+**Position B.** This skill runs a gate that deletes findings before they reach the output,
+including every item the source lists as an ineffective indicator.
+
+**Ruling.** These only look like opposites. Softening means recording a real tell and then
+downgrading it to sound agreeable. The gate does something different: it declines to raise
+items the source itself says are not evidence, such as formal prose, perfect grammar, and a
+lone transition word. Deleting a non-finding is not softening a finding.
+
+The line between them is testable. If a gate rule ever removes a pattern the source
+documents as a tell, that is softening and the rule is wrong. If it removes a pattern the
+source documents as ineffective, or one the format profile makes native, that is precision.
+Every gate rule in `false-positives.md` names which of the two it is, so the distinction can
+be checked rather than trusted.
+
 ## 15. The self-application test
 
 Common tooling in this area fails its own rules. One widely used cleanup skill mandates that
