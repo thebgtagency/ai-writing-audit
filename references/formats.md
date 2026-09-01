@@ -11,8 +11,6 @@ patterns that are native and must never be flagged, and the pass bar.
 Neither source measured any of these formats. See `false-positives.md`, "Confidence by
 format". State the confidence line in the verdict.
 
----
-
 ## 1. Direct message, first touch
 
 **Band.** 8 to 60 words. Two to four lines.
@@ -65,8 +63,6 @@ After:
 What moved: the specific observation replaces the compliment, the claim carries a number
 and a timeframe, and the ask is smaller than the sale.
 
----
-
 ## 2. Automated or templated message sequence
 
 **Band.** Same as above, times however many people receive it.
@@ -102,8 +98,6 @@ would look absurd sent to a thousand people, rewrite that sentence, not the temp
 **Repair rule specific to this format.** Do not fix a hollow line by adding another merge
 field. That deepens the tell. Fix it by narrowing the audience until a true, specific
 sentence is possible for everyone in it.
-
----
 
 ## 3. Objection reply
 
@@ -157,8 +151,6 @@ After:
 What moved: the price objection is conceded, the counter-evidence is named, the range
 includes the bad case, and the next step is external and small.
 
----
-
 ## 4. Caption
 
 **Band.** 20 to 220 words.
@@ -186,8 +178,6 @@ itself, and is the emotion labeled or embodied.
 
 **Pass bar.** Delete the final line. If the caption is better without it, the final line was
 the machine talking. Most captions improve.
-
----
 
 ## 5. Carousel or slide
 
@@ -221,8 +211,6 @@ never on one slide.
 **Pass bar.** Shuffle the middle slides. If the deck reads the same, it is a list wearing a
 narrative. Also: read only the slide headers. If the headers alone tell the whole thing,
 the body text is decoration and the deck is longer than its content.
-
----
 
 ## 6. Spoken script
 
@@ -266,8 +254,6 @@ if it is on no list.
 out of breath. Those marks are the findings. A script that has never been read aloud has
 not been audited, and this skill should say so in the verdict rather than claim a pass.
 
----
-
 ## 7. Long page
 
 Covers landing page, sales page, essay, article, documentation, newsletter.
@@ -305,8 +291,6 @@ strength the source measured it, and even here the source measured fiction.
 paragraph concedes anything, the page is a single track and the discourse layer flags it.
 Second, cut the page to a quarter. Whatever you cut without loss was never load bearing.
 
----
-
 ## 8. Email
 
 **Band.** 40 to 300 words.
@@ -329,8 +313,6 @@ subject line describe the email or advertise it.
 
 **Pass bar.** The first sentence has to be the reason. If the reason arrives in sentence
 three, the first two are a machine warming up.
-
----
 
 ## 9. Format not on this list
 

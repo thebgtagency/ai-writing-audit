@@ -289,9 +289,10 @@ is the argument for keeping the discourse layer even when it is the harder pass 
 ## This file follows its own rules
 
 Checkable, and checked. Across this file and the four references: no em dash, no en dash, no
-curly quotation mark or apostrophe, no heading in title case, no section that summarizes the
-section above it, no conclusion restating the page, and no vocabulary-list word outside a
-quoted example or the list itself. Those are greppable and were grepped.
+curly quotation mark or apostrophe, no heading in title case, no heading level skipped, no
+thematic break between sections, no section that summarizes the section above it, no
+conclusion restating the page, and no vocabulary-list word outside a quoted example or the
+list itself. Those are greppable and were grepped.
 
 One tell does appear here, deliberately. These files use inline-header lists, a bold label
 followed by a description, which the catalogue scores weight 2 in prose. The gate clears it

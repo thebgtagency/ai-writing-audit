@@ -9,8 +9,6 @@ Where a position comes from a measured source it is named. Where it comes from c
 tooling practice it is described as such, without naming a particular tool, because the
 same rule appears in several and the argument is with the rule.
 
----
-
 ## 1. Surface layer versus discourse layer
 
 **Position A.** Style is the strong signal. Style-only classifiers separate machine from
@@ -29,8 +27,6 @@ one layer reports a partial result and must say so.
 structurally machine-shaped text produce a polished machine-shaped text, and the study says
 so directly: editing out cliche and purple prose does not alter causal linearity, thematic
 explicitness, or sensory over-description.
-
----
 
 ## 2. The em dash
 
@@ -58,8 +54,6 @@ more than professional writers, while another used them less.
 A blanket ban stated as a detection rule contradicts the source it is drawn from, and on
 current model output it now points the wrong way for at least one major model family.
 
----
-
 ## 3. Rule of three
 
 **Position A.** Models force ideas into groups of three to look comprehensive. Repair by
@@ -73,8 +67,6 @@ synonyms, when they are the same length and shape, or when a fourth item would h
 equally true. A triad is content when the three items are distinct and named, when the
 count comes from the world rather than from the sentence, or when the medium asks for it.
 Weight 1, judged by density across the text.
-
----
 
 ## 4. Sentence rhythm
 
@@ -92,8 +84,6 @@ never an additive style applied to a text that did not have it.
 The operational rule: do not insert a fragment, an aside, or a rhythm break that the draft's
 own voice did not already contain. The test is whether the line is what this writer would
 write, rather than what a text avoiding detection would produce.
-
----
 
 ## 5. Invented personality
 
@@ -116,8 +106,6 @@ When a text is clean, flat, and voiceless, that is a finding to report, not a ho
 The repair is to ask the writer for the missing specific, or to leave the text neutral and
 say why. Voice can be matched from a sample. It cannot be invented from nothing.
 
----
-
 ## 6. Fix every hit, or only clusters
 
 **Position A.** One tell is weak. Flag clusters, not isolated hits.
@@ -137,8 +125,6 @@ stays" is not a standard.
 The audit output must state which mode it ran in. The same text can pass one and fail the
 other, and that is not an inconsistency.
 
----
-
 ## 7. Hedges and wordy constructions
 
 **Position A, standard editing advice.** Cut "very", "perhaps", "in order to", "the fact
@@ -152,8 +138,6 @@ phrases. Machine text avoids them while reaching for a formal register.
 is three hedges doing one job and it goes. One "perhaps" is how a person sounds. A draft
 thin on these constructions gets a note in the WHAT IS WORKING section rather than a further
 tightening pass, because tightening is the direction that makes text more machine-like.
-
----
 
 ## 8. Transition words
 
@@ -171,8 +155,6 @@ precedent in human essay writing, and many style guides accept it.
 finding. Sentence-initial "Additionally" repeated across paragraphs is a pattern and is
 weight 1. A tool that flags every "Additionally" is contradicting the guide it cites.
 
----
-
 ## 9. Show or tell
 
 **Position A, near-universal writing advice.** Show, do not tell. Render emotion through
@@ -188,8 +170,6 @@ interior access.
 the default, not the device. One embodied line is craft. Every feeling arriving as a body
 sensation is the pattern, and lush sensory writing is not evidence of a human hand.
 
----
-
 ## 10. Descriptive source, prescriptive tool
 
 **Position A, the source.** This list is descriptive, not prescriptive. It consists of
@@ -201,8 +181,6 @@ observations, not rules. Advice about what to avoid belongs elsewhere.
 are the source's. The thresholds, the weights, and the verdict bands are this skill's own
 judgment, and they are arguable. Wherever a number appears in this skill that the sources do
 not contain, the text says so.
-
----
 
 ## 11. Scope: fiction, or not fiction
 
@@ -218,8 +196,6 @@ emails, scripts. This skill runs there anyway, because that is where the need is
 every such run as an argued transfer rather than a measured result. The reasoning behind
 each transfer is written down in `discourse-tells.md` so it can be checked instead of
 trusted, and the parts that do not transfer are listed as fiction-only and not applied.
-
----
 
 ## 12. Which language
 
@@ -241,8 +217,6 @@ For a language with no measured list, run the discourse layer and the formatting
 report the vocabulary layer as not run, and build a local list only from observed model
 output in that language. Do not translate the English one.
 
----
-
 ## 13. Audit, or rewrite
 
 **Position A.** Rewrite, do not delete. The deliverable is the improved text.
@@ -254,8 +228,6 @@ rewrite is offered.
 text out of the writer's hands and quietly replaces their voice with the auditor's. Report
 findings with a suggested repair per finding. Produce the full rewrite when it is requested,
 and keep the findings table with it so the changes stay reviewable.
-
----
 
 ## 14. First draft, or existing draft
 
@@ -269,8 +241,6 @@ optimizes for the absence of tells, and the fiction study's clustering result de
 exactly where that lands: machine text clusters in a shared region defined by the absence of
 oddity, while human text is dispersed. Avoiding every listed tell is a route into that
 cluster, not out of it.
-
----
 
 ## 15. The self-application test
 

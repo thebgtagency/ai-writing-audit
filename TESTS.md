@@ -11,8 +11,6 @@ Controls exist because a tool that finds problems in every text is not a detecto
 and 10 are drafts a person wrote badly and humanly, and both must come back clean. If a
 change to this skill makes a control fail, the change is wrong.
 
----
-
 ## Case 1. Direct message, first touch
 
 **Input, 57 words**
@@ -68,8 +66,6 @@ both stopped losing the form. Want the two lines I changed?
 The skill flagged this correctly during the run: the repair for finding 1 is written as
 "one observation about his actual content, or do not send", not as an instruction to
 invent one. Recorded here because it is the failure mode most likely to appear in practice.
-
----
 
 ## Case 2. Automated message sequence, three steps
 
@@ -127,8 +123,6 @@ usually a scheduling problem, not a writing one.
 **Note.** Audited as one document. Step 4 finding is only visible across steps, which is
 why the profile says to print the sequence together.
 
----
-
 ## Case 3. Objection reply
 
 **Input, 62 words**
@@ -178,8 +172,6 @@ whether they have four hours a week, because below that it does not work and I w
 you find that out now. If it helps, I can send the week-one checklist so you can look at
 the hours before deciding.
 ```
-
----
 
 ## Case 4. Caption
 
@@ -253,8 +245,6 @@ The fourth one usually carries the week.
 is recorded because it is the clearest case where this skill contradicts standard advice,
 and the contradiction is the measured one in `references/conflicts.md`, item 9.
 
----
-
 ## Case 5. Carousel, eight slides
 
 **Input**
@@ -318,8 +308,6 @@ REWRITE (slides 1 to 6, the rest cut)
 6: My churn went from 4 in 10 to 1 in 10 after that sentence
 ```
 
----
-
 ## Case 6. Spoken script, roughly 30 seconds
 
 **Input, 76 words**
@@ -381,8 +369,6 @@ because it feels like pestering and it isn't. That's it. That's the whole video.
 **Note.** The gate cleared the three item list here while the caption case flagged a triad,
 because the count was announced to the listener and therefore had a job. That distinction is
 the ruling in `references/conflicts.md` item 3, and this run is where it was checked.
-
----
 
 ## Case 7. Long page section
 
@@ -481,8 +467,6 @@ smaller regional banks. And it takes about a week of setup where your numbers wi
 wrong before they look right.
 ```
 
----
-
 ## Case 8. Email
 
 **Input, 96 words**
@@ -557,8 +541,6 @@ Worth fifteen minutes? If it is not a live problem, say so and I will not follow
 David Chen, Vantage
 ```
 
----
-
 ## Case 9. Control, human-written direct message
 
 This draft is rough, unbalanced, and written by a person. It must pass.
@@ -596,8 +578,6 @@ WHAT IS WORKING
 
 **Result: pass.** If a future change to the surface layer makes this fail, the change is
 wrong.
-
----
 
 ## Case 10. Control, human-written caption
 
@@ -637,8 +617,6 @@ WHAT IS WORKING
 ```
 
 **Result: pass.**
-
----
 
 ## What the tests changed in the skill
 

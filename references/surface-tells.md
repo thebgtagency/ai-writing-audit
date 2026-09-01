@@ -21,8 +21,6 @@ introducing many of them, many times, is one of the strongest tells available.
 So run it as density. Count hits, weight them, divide by words, and read the ratio. A single
 weight 2 hit in a long page is a note. Four weight 1 hits in forty words is a verdict.
 
----
-
 ## Content tells
 
 ### Significance inflation, weight 2
@@ -107,8 +105,6 @@ and legacy, future outlook, future directions, continues to evolve.
 The source is explicit that the tell is the formula and not the mention of challenges. A
 text that names a real difficulty and leaves it unresolved is doing the opposite thing.
 
----
-
 ## Language tells
 
 ### The vocabulary list, weight 2 at density, weight 1 for one hit
@@ -185,8 +181,6 @@ Judge by density and by whether the three items are actually different. Three sy
 tell. Three distinct claims is a list. A tricolon in a speech is rhetoric that predates the
 models by millennia.
 
----
-
 ## Punctuation and typography
 
 ### Em dash, weight 1, and read the detail before flagging
@@ -227,8 +221,6 @@ Straight and curly quotes in the same document. Hyphens standing in for en dashe
 Spacing that changes between paragraphs. These point to text assembled from more than one
 source, which is a fact worth knowing even when nothing else is wrong.
 
----
-
 ## Formatting tells
 
 ### Title heading, weight 2
@@ -268,13 +260,37 @@ Emoji placed in front of headings or bullet points as decoration. This is a docu
 formatting tell, not a judgment about emoji. In a social caption emoji are native and their
 absence can itself read as machine written.
 
+### Heading level jumps, weight 2
+
+Sections that start at the third level with no second level above them. The source notes
+this is very unlikely in a manually formatted page, because a person building headings by
+hand builds them in order.
+
+### Level 1 headings scattered through a document, weight 2
+
+Top level headings used for ordinary sections, where the top level normally belongs to the
+document title alone. The source attributes this to a model translating markdown headings
+into another markup and losing the level in the process.
+
+### A thematic break between every section, weight 1
+
+A horizontal rule dividing each section from the next, all the way down. Common in markdown
+output, rare in a document a person laid out.
+
+Weight 1 rather than 2, because one or two breaks in a long document is ordinary typography.
+The tell is the mechanical repetition: every section, no exceptions.
+
+### Small tables that should have been sentences, weight 1
+
+A table with two columns and three rows holding what a sentence would have said. The source
+records this as rare but distinctive. Test: read the table out loud. If it takes fewer words
+as a sentence, the table is decoration.
+
 ### Markdown where markdown does not belong, weight 2
 
 Asterisk bold, hash headings, or markdown tables pasted into a medium that does not render
 them. A near-certain sign of text moved out of a chat window, and one of the few tells on
 this list that is close to proof rather than inference.
-
----
 
 ## Chat leftovers
 
@@ -322,8 +338,6 @@ Leftovers of a refusal, or text that stops mid-sentence because a generation end
 source lists both as historical, meaning they are rarer now, and both remain conclusive when
 present.
 
----
-
 ## Tells the source records as decayed
 
 Kept for old text, not for current drafts. The source marks these as common from roughly
@@ -342,8 +356,6 @@ discourse layer, where explaining your own theme was measured at 77 percent for 
 against 52 percent for human. The resolution: the phrase "in conclusion" has decayed, the
 behaviour has not. Flag the behaviour, not the phrase.
 
----
-
 ## How this list ages
 
 Every item here is a snapshot. The source page carries its own update banner asking for the
@@ -356,8 +368,6 @@ Two consequences for anyone maintaining this file:
    positives.
 2. Do not add an item because it feels like AI. The source's own instruction for its
    vocabulary box is to add only what is corroborated. Follow it.
-
----
 
 ## Attribution
 
