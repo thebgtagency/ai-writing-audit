@@ -1,81 +1,100 @@
 # ai-writing-audit
 
-A single skill for auditing and repairing text that reads as machine-written.
+A skill for auditing and repairing text that reads as machine written. One skill, every
+format: a two line direct message, an automated message sequence, an objection reply, a
+caption, a carousel slide, a spoken script, a landing page, an essay, an email.
 
-Most anti-AI-writing guides check one layer: word choice, punctuation, formatting. That
-layer is real, but it is also cheap to fix and it ages out. One model generation removes
-a tell and the checklist is stale.
+## What makes it different from a word list
+
+Most tools in this space are a list of banned words plus a dash ban. That catches an
+unedited first draft and nothing else, because those signatures are the part that gets
+removed by the next model release or by a single editing pass.
 
 This skill runs two layers.
 
-**Surface tells** are word choice, sentence shape, punctuation, formatting.
+The **surface layer** is the word, punctuation, and formatting catalogue, built from
+Wikipedia's "Signs of AI writing" field guide.
 
-**Discourse tells** are how the piece is built: what it explains, what it leaves implied,
-how time moves, who acts, whether it acknowledges a reader. These survive a surface
-cleanup, because removing them means rewriting the structure.
+The **discourse layer** asks structural questions instead: does the text explain its own
+point, does everything pull one way, does it resolve by asking the reader to decide, is
+anything named. It comes from StoryScope (COLM 2026), which measured 61,608 stories and
+separated human from machine text at 93.2 macro-F1 using narrative structure alone, with
+no style signals at all. That paper also tested what happens when you clean the surface:
+running a rewriter over cliche, redundant exposition, and purple prose moved its detection
+by 1.6 points. The structure survived the polish.
 
-> "AI style is increasingly fleeting: GPT-5.4 significantly reduced em-dash usage, and
-> fine-tuning to mimic human style drops AI detection rates on creative writing from 97%
-> to 3%. Discourse-level narrative features are far harder to 'humanize', as changing
-> them requires significant structural rewrites rather than simple post-hoc edits."
+Both layers run behind a **false positive gate**, because the sources spend a large part of
+their text warning against over-reading, and a tool that finds seven problems in every text
+is not a detector.
 
-## Why it is layered by text type
+## What it will not tell you
 
-The two bodies of work behind this skill state opposite scope limits, and both say so in
-their own text.
+Whether a machine wrote it. That question has a bad evidence base: one 2025 study puts human
+accuracy at chance level, another at 57 percent, and a 2025 preprint puts heavy model users
+at about 90 percent, which is one false accusation in every ten. Detector tools are recorded
+in the same source as having non-trivial error rates and as breaking under paraphrase.
 
-Wikipedia's *Signs of AI writing* covers informational prose and notes that tells
-specific to fiction are not listed. StoryScope measures narratives averaging ~5,000
-words and notes that shorter texts cannot support the features it extracts.
+So the output is a reading verdict, not an authorship verdict, and the skill says so on
+every run.
 
-So a flat checklist is wrong in both directions: run the discourse layer on an eight-word
-slide and you get noise; run only the surface layer on a long piece and synthetic text
-walks through.
+## Install
 
-Section 0 of the skill picks the layer from what the text actually is. A two-line direct
-message, a carousel slide, a spoken script, and an essay do not get the same rules.
+Copy the folder into your skills directory:
 
-## What is in it
+```
+~/.claude/skills/ai-writing-audit/
+```
 
-- 16 surface rules with repair instructions, not just a banned-word list
-- 6 discourse rules drawn from measured narrative features
-- 3 documented collisions between the layers, with a resolution for each
-- Short-form handling for DMs, slides, captions and spoken scripts
-- A "what is not a tell" section, including the non-native-writer false positives
-- An anti-overfit section: the failure mode where cleaned text starts performing
+Then ask for an audit on a draft. The skill is for text that already exists. It is not for
+writing a first draft, and `references/conflicts.md` item 14 explains why composing against
+a tell list makes text worse rather than better.
 
-## Collisions worth knowing about
+## Files
 
-One example. The surface layer bans performed intimacy openers (`Look,`, `Here's the
-thing`). The discourse measurement records reader-address as a *human* signal. Both are
-right about different things: the banned versions are hooks with nothing behind them, the
-human signal is an actual aside. The skill resolves this rather than letting whichever
-rule runs first win.
+```
+SKILL.md                      the audit loop, the modes, the output contract
+references/surface-tells.md   word, punctuation, and formatting catalogue
+references/discourse-tells.md the structural layer, with the measured rates
+references/false-positives.md what not to flag, and confidence by format
+references/formats.md         profiles for nine formats plus a derivation procedure
+references/conflicts.md       fifteen disagreements between the sources, and the rulings
+TESTS.md                      ten runs across eight formats, including two controls
+```
 
-Another: "show, don't tell" is standard writing advice, and AI over-applies it. Embodied
-emotional expression appeared in 81% of AI stories against 38% of human ones. For text a
-model produced, naming the feeling plainly is the correction.
+## What it has actually been tested on
 
-## Use
+Eight formats have a recorded run in `TESTS.md`: direct message, automated sequence,
+objection reply, caption, carousel, spoken script, long page, email. Two controls,
+human-written and rough, come back with zero findings.
 
-Drop the folder into your skills directory. The skill runs after a draft exists. Do not
-compose against the checklist; composing against a blocklist produces constrained,
-lifeless text, which is its own tell.
+Formats without a recorded run are covered by the four-question derivation procedure at the
+end of `references/formats.md`, and the skill does not claim measured coverage of them.
+
+## Honest limits
+
+Neither source measured the formats most text actually takes. The Wikipedia guide was built
+on encyclopedia articles and says outright that some of its signs may not apply outside that
+context. The fiction study was built on roughly 5,000 word stories and says that shorter
+texts cannot support its features. Everything between those two, meaning messages, captions,
+slides, ads, emails, and scripts, is covered here by argued transfer. Each transfer states
+the reasoning that carries it so the reasoning can be checked rather than trusted, and the
+parts that do not transfer are listed as fiction-only and are not applied.
+
+The vocabulary lists are English. They do not survive translation, and the skill reports the
+vocabulary layer as not run on text in another language rather than translating the list.
+
+Every word list here ages. Human writing and speech are measurably drifting toward model
+output, with a 2024 study finding significant influence in conversational podcasts. The
+structural layer ages more slowly, which is the argument for keeping it even though it is
+the harder pass to run.
 
 ## Sources
 
-- Wikipedia, *Signs of AI writing* (WikiProject AI Cleanup). Text available under
-  CC BY-SA 4.0.
-- Russell, Rajendhran, Pham, Iyyer, Wieting. *StoryScope: Investigating idiosyncrasies in
-  AI fiction.* COLM 2026. arXiv:2604.03136. 10,272 prompts, 61,608 stories, 304 features
-  per story, five models.
-
-Surface repair patterns were consolidated from working style guides and deduplicated
-against both sources.
+- Wikipedia, "Signs of AI writing", maintained by WikiProject AI Cleanup. CC BY-SA 4.0.
+- Russell, Rajendhran, Pham, Iyyer, Wieting. "StoryScope: Investigating idiosyncrasies in AI
+  fiction." COLM 2026.
 
 ## Licence
 
-CC BY-SA 4.0. See [LICENSE](LICENSE).
-
-Rules derived from Wikipedia's guide carry that project's share-alike terms, so the whole
-skill is released under the same licence rather than a more permissive one.
+CC BY-SA 4.0. The skill incorporates and adapts material from a CC BY-SA 4.0 source, so the
+same terms carry through. See `LICENSE`.

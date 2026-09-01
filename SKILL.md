@@ -1,344 +1,309 @@
 ---
 name: ai-writing-audit
 description: >
-  Audit and repair text that reads as machine-written. Works on any length and any
-  format: a two-line DM, a caption, a spoken script, a carousel slide, a landing page,
-  an essay. Two layers: surface tells (word, sentence, punctuation, formatting) and
-  discourse tells (theme, causality, time, agency, reader address). Use after a draft
-  exists, never to compose the first draft.
+  Audit and repair text that reads as machine written. Any length, any format: a two line
+  direct message, an automated message sequence, an objection reply, a caption, a carousel
+  slide, a spoken script, a landing page, an essay. Runs two layers, surface tells and
+  discourse tells, behind a false positive gate, and returns findings with a repair for
+  each. Use on an existing draft. Do not use to compose a first draft.
+license: CC-BY-SA-4.0
 ---
 
-# AI Writing Audit
+# AI writing audit
 
-Text gets flagged as machine-written for two separate reasons, and most guides only
-cover the first one.
+## What this returns, and what it will not claim
 
-**Surface tells** are word choice, sentence shape, punctuation, formatting. They are
-cheap to fix and cheap to fake. They also decay fast: one model generation removes a
-tell and the checklist ages out.
+This skill answers one question: **does this text read as machine written, and where.**
 
-**Discourse tells** are how the piece is built: what it explains, what it leaves
-implied, how time moves, who acts, whether it acknowledges a reader. These survive a
-surface cleanup, because removing them means rewriting the structure.
+It does not answer whether a machine wrote it. That is a different question and the
+evidence says nobody answers it reliably. The source guide records a 2025 study finding
+human accuracy at chance level, a second study at 57 percent on AI text, and a preprint
+putting heavy model users at about 90 percent, which still means one false accusation in
+ten. Detector tools are described in the same source as having non-trivial error rates and
+as breaking under paraphrase, markup changes, or an unfamiliar model.
 
-> "AI style is increasingly fleeting: GPT-5.4 significantly reduced em-dash usage, and
-> fine-tuning to mimic human style drops AI detection rates on creative writing from
-> 97% to 3%. Discourse-level narrative features are far harder to 'humanize', as
-> changing them requires significant structural rewrites rather than simple post-hoc
-> edits."
-> Russell et al., *StoryScope: Investigating idiosyncrasies in AI fiction*, COLM 2026
+So the verdict is about reading, not authorship. Never write "this was AI generated". Write
+"these seven patterns read as machine written, here is the repair for each".
 
-A checklist that only knows the first layer will pass text that is obviously synthetic
-to a reader, and will fail text a person actually wrote.
+## The two layers
 
----
+**Surface layer.** Word choice, sentence shape, punctuation, formatting. Catalogued in
+`references/surface-tells.md`, built from Wikipedia's "Signs of AI writing" field guide.
+Cheap to detect and cheap to fix, which is also its weakness: these signatures get removed
+by each new model generation and by a single editing pass.
 
-## 0. Pick the layer first
+**Discourse layer.** Theme, causality, time, agency, stance. Catalogued in
+`references/discourse-tells.md`, built from StoryScope (COLM 2026), which measured 61,608
+stories and reached 93.2 macro-F1 on human versus machine using narrative structure alone,
+with zero style signals. Its conclusion states the reason this layer exists: surface
+signatures are transient and post-editable, while narrative features require structural
+rewrites to change.
 
-The two source bodies behind this skill have opposite scope limits, and both state them
-plainly. Wikipedia's guide is about informational prose and says it does not cover
-fiction. StoryScope measures ~5,000-word narratives and says shorter texts cannot
-support the features it extracts.
+Measured together in that paper: a style-only model scored 85.8 and a 30 feature narrative
+model scored 84.8. Within a point of each other. Neither layer is sufficient, so run both,
+and never report a pass from one layer alone.
 
-So the layer is chosen by what the text is, not by preference.
+**The gate.** `references/false-positives.md` holds the patterns that look like tells and
+are not, the constructions that lean human, and the confidence each format deserves. Every
+finding passes through it before it reaches the output.
 
-| Text | Length | Surface layer | Discourse layer |
-|---|---|---|---|
-| DM, reply, comment | 1-4 lines | full | reader-address check only |
-| Carousel slide, caption line | 5-25 words | reduced (see §4) | no |
-| Caption block | 30-120 words | full | reader-address, over-explaining |
-| Spoken script (reel, VO) | 60-200 words | spoken subset (§4) | over-explaining, agency |
-| Email, landing section | 150-600 words | full | full minus time-structure |
-| Essay, article, long script | 600+ words | full | full |
+The sources disagree with each other and with the tools built on them.
+`references/conflicts.md` lists every disagreement and the ruling this skill applies. Four
+of those rulings are load bearing and are repeated here, because getting them wrong changes
+the output rather than refining it.
 
-Applying the discourse layer to eight words is not rigor, it is noise. Applying only
-the surface layer to a long piece is where synthetic text passes.
+## Two modes, and they are not the same question
 
----
+**Deliverable mode, the default.** The text belongs to the person asking. The goal is a
+better text. A single hit is worth fixing when the fix costs nothing, no cluster required,
+and no claim about authorship is made or needed.
 
-## 1. Surface layer
+**Assessment mode.** The text came from somewhere else and the question is how it reads. A
+single hit supports nothing. Clusters across several distinct categories are the bar, five
+or more categories before the reading verdict means much, and the cautions in
+`references/false-positives.md` about false accusations apply in full.
 
-Run this on any draft. Each hit gets: rule, the exact sentence, and a replacement that
-carries the same claim. Deleting is not repair. A deleted sentence takes its meaning
-with it.
+Say which mode ran. The same text can pass one and fail the other without either being
+wrong.
 
-### 1.1 Inflation
-Cosmic significance welded onto an ordinary fact. `stands as`, `serves as`, `testament
-to`, `underscores the importance`, `marks a turning point`, `reflects a broader`,
-`enduring legacy`, `evolving landscape`, `indelible mark`.
+## The rule that outranks every other rule here
+
+**Never add anything to a text that was not true of it.**
+
+No invented first person. No anecdote that did not happen. No opinion the writer did not
+hold. No source, statistic, name, or number that was not already there or supplied by the
+writer.
 
-Repair: state what the thing is or does. Delete the significance clause.
+Some cleanup tools, when given no writing sample, fall back on manufacturing a voice: add
+uncertainty, add a personal aside, add an admission. That produces text that reads more
+human and states things that are false, which in marketing copy is a false claim about a
+real business.
 
-### 1.2 Promotional register
-`vibrant`, `rich` (figurative), `boasts`, `nestled`, `breathtaking`, `renowned`,
-`groundbreaking`, `must-visit`, `showcasing`, `a commitment to`, `diverse array`.
+When a draft is clean, flat, and voiceless, report it as a finding. Ask for the missing
+specific. Do not fill the hole yourself. Voice can be matched from a sample, and it cannot
+be invented from nothing.
+
+## Optional input: a voice sample
 
-Newer models rarely use open superlatives; they use quiet approval instead. Watch for a
-paragraph where nothing is criticised and every adjective is mild-positive.
+If the writer supplies two or three samples of their own past writing, use them. Sample
+evidence outranks every generic list in this skill.
 
-### 1.3 Trailing -ing analysis
-`highlighting`, `underscoring`, `emphasizing`, `reflecting`, `ensuring`, `fostering`,
-`contributing to`, `resonating with` appended to the end of a sentence to add depth.
+Measure the samples before auditing: sentence length spread, dash and punctuation habits,
+paragraph length, opening moves, recurring phrases, whether they use contractions,
+fragments, emoji, first person. Then build a protect list from the result.
+
+The reason this matters: a real writer's tics look like machine filler to a generic pass.
+Spoken glue, a repeated stock phrase, an unusual dash habit, an "okay?" every few lines. A
+generic sweep strips exactly the things that make the text theirs. Anything on the protect
+list is weight 0 for that writer, and stripping it is a finding against the audit rather
+than against the text.
 
-Repair: cut the clause, or make it a separate sentence with a source.
+Without samples, run the generic lists and say in the verdict that no sample was available.
 
-### 1.4 Vague attribution
-`experts argue`, `industry reports`, `observers note`, `some critics`, `several
-sources`, open-ended `such as`.
+## Run it
 
-Repair: name, date, document. If none exists, cut the claim.
+### Pass 0. Profile the text
 
-### 1.5 Copula avoidance
-`serves as`, `functions as`, `represents`, `stands as`, `operates as`, `boasts`,
-`features`, `maintains`. A paragraph that never once uses `is` or `has` is the tell,
-not any single instance.
+Name the format. Open `references/formats.md` and load its profile. If the format is not
+listed, answer the four questions at the end of that file and write the derived profile
+into the output so the reader can argue with it.
 
-### 1.6 Negative parallelism
-`not only X but also Y`. `It's not X, it's Y`. `No X, no Y, just Z`. `X rather than Y`
-used for false depth.
-
-Repair: drop the rejected half, keep the claim. The contrast survives only when Y is
-concrete and the text actually delivers Y.
-
-### 1.7 Rule of three
-Adjective, adjective, adjective. Short phrase, short phrase, and short phrase. The
-third item is usually filler or a synonym of the second.
-
-Human rhetoric uses tricolon. Attack filler triples and stacked three-item lists, not
-every group of three.
-
-### 1.8 Trailing negation
-A fragment glued to a finished sentence: `..., no guessing.` `..., no wasted motion.`
-
-Repair: real subordinate clause, or cut.
-
-### 1.9 Em dash and en dash
-`—` and `–`, spaced or unspaced.
-
-For attribution this is weak evidence on its own; it is a house-style choice in much
-human writing and recent models suppress it. For delivery, remove them: period, comma,
-colon, parentheses, or split the sentence. One remaining dash means the pass is not
-finished.
-
-In languages where the em dash is not native punctuation (Turkish, for one), a hit is a
-much stronger tell.
-
-### 1.10 Formatting tells
-Bold on every key term. `- **Header:** sentence` list items. Title Case headings.
-Decorative emoji on headings or bullets. A `---` between every section. A one-row table
-for a single statistic. Hyphenated compounds kept hyphenated in predicate position
-(`the team is cross-functional`).
-
-### 1.11 Filler and hedging
-`in order to`, `due to the fact that`, `it is important to note that`, `at this point
-in time`, `has the ability to`. Stacked hedges: `could potentially possibly be argued`.
-
-One instance is human. Density is the tell.
-
-### 1.12 Signposting and closers
-`Let's dive in`, `here's what you need to know`, `without further ado`, `In today's
-fast-paced world`, `In conclusion`, `The future looks bright`, `Only time will tell`.
-
-Repair: do the work instead of announcing it. End on the last concrete point.
-
-### 1.13 Chatbot residue
-`I hope this helps`, `Certainly!`, `Would you like me to`, `Here is a`, `As an AI`,
-`As of my last knowledge update`, `While specific details are limited`.
-Placeholders: `[Your Name]`, `INSERT_`, `TODO`, `2026-XX-XX`.
-
-Any of these in delivered text means the draft was never read before sending.
-
-### 1.14 Vendor artifacts
-`contentReference`, `oaicite`, `turn0search`, `[cite: 1]`, `【85†L261】`,
-`utm_source=chatgpt.com`, `?referrer=grok.com`.
-
-### 1.15 Manufactured cadence
-Every sentence 15-25 words. No sentence under eight. Every paragraph the same height.
-Or the opposite failure: engineered staccato, three fragments in a row for drama.
-
-Repair: mix. Do not force fragments; even, mid-length rhythm is itself the tell.
-
-### 1.16 Portability test
-If a sentence transfers to a different company, person, or product without changing a
-word, it is filler. Replace it with something only true here: a number, a name, a
-mechanism, a consequence.
-
----
-
-## 2. Discourse layer
-
-Only for text long enough to have structure (see §0). These come from measurement, not
-taste: narrative features alone separated human from AI text at 93.2% macro-F1, keeping
-over 97% of the performance of models that also saw stylistic cues.
-
-### 2.1 Over-explanation
-The text states its own meaning instead of letting it land. The narrator, or the
-writer's voice, interprets the events for the reader.
-
-> "The pattern is one of over-determination: AI spells out meaning rather than trusting
-> the reader to infer it."
-
-Repair: cut the interpreting sentence. If the point does not survive without it, the
-material underneath is too thin. Fix that instead.
-
-### 2.2 Tidy single track
-One thread, no side matter, few loose ends, everything resolved, the protagonist solves
-the problem through their own effort.
-
-> "AI favors single-track narratives with fewer loose ends; human stories are messier,
-> with time jumps and disjointed causal chains."
-
-Repair: allow one thing to stay unresolved. Let a cause come from outside the
-protagonist. Do not manufacture chaos. The tell is the absence of any, not the amount.
-
-### 2.3 Flat time
-Strict chronology, evenly spaced. Human text jumps: flashback, aside, a fact recalled
-out of order.
-
-### 2.4 Moral tidiness
-Choices are clearly right or clearly wrong. Human text leaves more choices genuinely
-arguable.
-
-### 2.5 Over-embodiment
-This one inverts the usual advice. AI renders emotion through the body; people often
-just name the feeling.
-
-> "Where a human author might write that a character 'felt afraid', AI renders fear as
-> a tightening chest, cold sweat, and dimming lamplight."
-
-Measured: embodied emotional expression appeared in 81% of AI stories against 38% of
-human ones.
-
-Repair: for text produced by a model, "show, don't tell" is already over-applied. Name
-the feeling plainly at least as often as you stage it.
-
-### 2.6 No reader in the room
-Human writing acknowledges someone is reading. AI writes as if unobserved.
-
-> "Human writing acknowledges its audience as a co-participant; AI writes as though no
-> one is watching."
-
-See §3.1. This collides with a surface rule, and the collision has to be resolved
-deliberately rather than by whichever rule is checked first.
-
----
-
-## 3. Where the layers collide
-
-### 3.1 Addressing the reader
-Surface layer bans the performed opener: `Look,` `Here's the thing`, `Let's be honest`,
-`Real talk`. Discourse layer records reader-address as a human signal.
-
-Both are right about different things. The banned versions are hooks: an intimacy
-gesture with nothing behind it. The human signal is an actual aside: a concession, a
-correction, an admission the reader might disagree.
-
-Rule: an aside that carries information stays. An aside that only sets a tone goes.
-
-### 3.2 Show versus tell
-Surface guidance says be concrete. Discourse measurement says AI is already too
-concrete about bodies and sensation. Concrete about facts, plain about feelings.
-
-### 3.3 Structure versus rhythm
-Surface layer wants varied sentence length. Discourse layer wants varied narrative
-shape. Fixing rhythm alone produces text that reads lively and is still built like a
-machine built it.
-
----
-
-## 4. Short forms
-
-Most of the surface layer assumes prose. On very short text it produces false hits.
-
-**Direct message (1-4 lines).** Live rules: 1.6, 1.9, 1.12, 1.13, 1.16, and reader
-address. Dead rules: rule of three (there is no room), cadence (too few sentences),
-formatting. A DM that passes every prose rule and still opens with a compliment about
-their page is a template, and the portability test is what catches it.
-
-**Carousel slide (5-25 words).** Only 1.1, 1.2, 1.9, 1.13 apply. Judge the deck as one
-unit: if every slide has the same grammatical shape, that is the tell, not any slide.
-
-**Spoken script.** Skip formatting and citation rules entirely. Keep 1.6, 1.7, 1.11,
-1.12, 1.15, 2.1. Add: read it out loud. A clause you cannot say in one breath will not
-survive the camera. Written-only punctuation (semicolons, parentheticals, dashes) has
-no spoken equivalent and comes out as a stumble.
-
-**Caption.** Surface layer in full. The first line carries the whole job; apply 1.12
-hard to it.
-
----
-
-## 5. Process
-
-1. Draft first. Never compose against this list. You get constrained, lifeless text.
-2. Pick the layer (§0).
-3. Mark hits. Rule number, exact sentence.
-4. Stack overlapping hits on one sentence as a single finding, not three.
-5. Repair by replacement, not deletion. Meaning is preserved; inflation is not.
-6. Read it aloud.
-7. Report what changed and what is still unresolved.
-
-Output:
+One piece can hold two formats. A short video ships as a spoken script plus a written
+caption, and those get different passes: the script gets the spoken profile with the word
+list demoted, the caption gets the full written pass. Audit them separately and say so.
+
+Check the language. The discourse checks and the formatting checks work in any language. The
+vocabulary lists were measured on English tokens and do not survive translation. For text in
+another language, run both other layers, report the vocabulary layer as not run, and build a
+local list only from observed output in that language rather than by translating this one.
+
+Ask for provenance if it is unknown and cheap to get. If the text predates 30 November
+2022, machine authorship is ruled out by date and the audit becomes a writing review only.
+
+Count the words. The count sets which layer leads:
+
+| Words | Layer that leads | Discourse checks that run |
+|---|---|---|
+| Under 60 | Surface | Specificity, stance, self-explaining last line |
+| 60 to 300 | Both, equal | The format profile's list |
+| 300 to 800 | Both, discourse rising | Full carry-over table |
+| Over 800 | Discourse | Full carry-over table, surface as supporting evidence |
+
+### Pass 1. Surface sweep
+
+Go through `references/surface-tells.md` and mark hits with exact quotes and positions.
+Mark, do not fix yet. Fixing during the sweep hides the density, and density is the finding.
+
+Weight each hit:
+
+- **Weight 2, hard.** Documented, specific, and rare in unedited human writing: the flagged
+  vocabulary items, negative parallelism, vague attribution, participial pseudo-analysis,
+  promotional register with no fact under it, self-summarizing conclusions, formatting
+  artifacts from a chat interface.
+- **Weight 1, weak.** Real but common in human writing: dash density, the rule of three,
+  a symmetrical pair, boldface as texture, one transition word.
+- **Weight 0, never counted.** The ineffective indicator list in the gate file. Perfect
+  grammar, formal prose, bland prose, mixed register, a transition word on its own. Do not
+  raise these as findings, in any format, at any length.
+
+### Pass 2. Discourse sweep
+
+Run the carry-over table in `references/discourse-tells.md` at the depth Pass 0 set. Eight
+checks in full:
+
+1. **Self-explaining.** Does the text state its own lesson, moral, or significance rather
+   than leave it to the reader.
+2. **Single track.** Does everything pull one way, with no aside, exception, or second
+   thread.
+3. **Tidy causality.** Does each sentence follow cleanly from the last, with no gap,
+   reversal, or admitted cost.
+4. **Internal resolution.** Does it end by asking the reader to decide, realize, or commit,
+   rather than to do something external and small.
+5. **Moral polarity.** Is every actor clearly right or clearly wrong, with nothing
+   ambivalent.
+6. **Named reference.** Are there real names, numbers, dates, places, tools. Or only
+   diffuse echoes of them.
+7. **Emotion handling.** Are feelings delivered as body sensations by default. The paper
+   found embodied emotional expression is the machine-leaning value and an explicit label
+   is the human-leaning one, which reverses the usual "show, do not tell" instruction.
+   Judge the default, not one instance.
+8. **Order.** Is the text told in the flattest possible order, when the material had another
+   one available.
+
+Do not run the fiction-only features on non-fiction. `references/discourse-tells.md` lists
+which ones stay in fiction and why porting them produces nonsense.
+
+### Pass 3. Gate
+
+For every finding, three questions:
+
+1. Is it on the ineffective list. If yes, delete the finding.
+2. Does the format profile call it native. If yes, delete the finding.
+3. Is it a construction the source records as leaning human. Plain verbs, "there is a",
+   "in order to", "the fact that", "very", "perhaps", a superlative. If yes, delete the
+   finding, and if the draft is thin on these, note it as a repair opportunity rather than
+   a fault. Sanding these off makes the text more machine-like, not less.
+
+Then score. Density is weighted findings per 100 words:
+
+| Density | Verdict |
+|---|---|
+| Under 1.0 | Reads human |
+| 1.0 to 3.0 | Mixed |
+| Over 3.0 | Reads machine |
+
+For text under 60 words the denominator is unstable, so score by count: 0 to 1 weighted
+findings reads human, 2 to 3 mixed, 4 and above reads machine.
+
+These cutoffs are a judgment call layered on top of descriptive sources, not a measured
+threshold. The source page says of itself that it is descriptive, not prescriptive, a list
+of observations rather than rules. Say so when the score is close to a boundary.
+
+### Pass 4. Repair
+
+The rule that governs every repair, from the source guide: the patterns are potential signs
+of a problem, not the problem itself, and treating the signs as the thing to fix "could
+just make detection harder".
+
+So, in order:
+
+1. **Cut first.** Most findings are sentences doing no work. Deleting is the repair. Do not
+   replace a hollow sentence with a better hollow sentence.
+2. **If it stays, put something under it.** A flagged promotional line needs a fact, a
+   number, a name, or a cut. A synonym pass leaves the text empty and clean, which is the
+   failure mode this skill exists to prevent.
+3. **Repair the discourse findings before the surface findings.** Surface repairs on a
+   single-track text produce a polished single-track text. The reverse order wastes work,
+   because restructuring rewrites the sentences anyway.
+4. **Change one thing per finding.** Keep the writer's voice, the argument, the offer, and
+   the facts. This skill has no mandate to change what the text says.
+5. **Do not add a tell while removing one.** The common accident is replacing a banned word
+   with a rhetorical flourish, replacing a dash with a colon everywhere, or replacing a
+   summary line with a rhetorical question.
+6. **Leave the roughness.** If the draft has a plain verb, an abrupt sentence, a small
+   digression, or an unbalanced rhythm, that is the human signal. Protect it.
+7. **Never insert rhythm the draft did not have.** Varying sentence length is a repair for a
+   metronome cadence that is already present. It is not a style to apply on top. Do not add
+   a fragment, an aside, or a one-line paragraph that this writer's voice did not already
+   contain. A text that reads as a machine trying not to read as a machine has traded one
+   pattern for a worse one.
+8. **Add nothing that was not true.** See the rule above the passes. This is where it gets
+   broken, and it is the one repair failure this skill treats as disqualifying.
+
+### Pass 5. Report
 
 ```
-AUDIT
-  Type / length: <DM | slide | script | caption | long>
-  Layers run: surface [+ discourse]
-  Hits:
-    1.6  "It's not about the posts, it's about the follow-up."
-    2.1  "This is what separates coaches who grow from coaches who stall."
-  Stacked: 1.1+1.7 in one sentence, counted once
-  Rewrite: <full text>
-  Unresolved: <or none>
+MODE: deliverable | assessment
+FORMAT: <name> (<derived / from profile list>)
+LENGTH: <n> words        LANGUAGE: <name> (vocabulary layer: run / not run)
+VOICE SAMPLE: yes, <n> samples | none supplied
+CONFIDENCE: <from the confidence table in false-positives.md>
+VERDICT: reads human | mixed | reads machine   (density <x.x> per 100 words)
+
+FINDINGS
+1. [surface, w2] "<exact quote>"
+   Tell: <name from the catalogue>
+   Why: <one line>
+   Repair: "<replacement, or CUT>"
+2. [discourse, w2] <check name>
+   Evidence: <quote or structural description>
+   Repair: <what to restructure>
+...
+
+GATED (looked like findings, are not)
+- "<quote>" : <which gate rule cleared it>
+
+WHAT IS WORKING
+- <the human-leaning constructions present, so the next edit does not remove them>
+
+REWRITE
+<the repaired text in full, if a rewrite was asked for>
 ```
 
-Never claim a count you did not count.
+Always print the GATED section, even when empty. It is what stops the audit turning into a
+machine that finds seven problems in every text regardless of the text.
 
----
+Print WHAT IS WORKING before the rewrite. An audit that only subtracts trains the next
+draft toward the safe middle, and the safe middle is where the measured machine cluster
+sits.
 
-## 6. What is not a tell
+## Where this skill is guessing
 
-Perfect grammar. Mixed register. Boring but clean prose. A single academic word. One
-`however`. A single em dash in English prose. Unsourced web copy. Clean template
-formatting. Text written before late 2022.
+Say this out loud in the verdict rather than hiding it.
 
-Non-native English writers get flagged by several of these rules for reasons that have
-nothing to do with machines: synonym cycling to avoid repetition, formal register,
-careful hedging. Weigh the cluster, never a lone hit.
+The surface catalogue was built on Wikipedia articles and openly states that some of its
+signs may not apply outside that context, and that it is less useful for text which is not
+informational writing. The discourse layer was built on roughly 5,000 word fiction and its
+features come from a narratological taxonomy. Neither source measured a direct message, a
+caption, a slide, an ad, an email, or a spoken script.
 
-## 7. What to protect
+For those formats this skill is running an argued transfer. Each carry-over in
+`references/discourse-tells.md` states the reasoning that carries it, so the reasoning can
+be checked. Anything that does not transfer is listed as fiction-only and is not applied.
 
-Detail too specific to invent. Unresolved tension. Mixed feeling. A defensible editorial
-choice. Self-correction mid-paragraph. Plain verbs: `wrote` not `authored`, `used` not
-`utilized`, `died` not `passed away`. Slang tied to a year.
+One more limit that grows over time: human writing and speech are measurably drifting
+toward model output, with a 2024 study finding significant influence in conversational
+podcasts. Every word list on this page ages. The structural checks age more slowly, which
+is the argument for keeping the discourse layer even when it is the harder pass to run.
 
-Preserving these is not the same as leaving AI tells in place. Keep the human detail,
-strip the vocabulary cluster.
+## This file follows its own rules
 
-## 8. Anti-overfit
+Checkable, and checked. Across this file and the four references: no em dash, no en dash, no
+curly quotation mark or apostrophe, no heading in title case, no section that summarizes the
+section above it, no conclusion restating the page, and no vocabulary-list word outside a
+quoted example or the list itself. Those are greppable and were grepped.
 
-If the word is exactly right and has no substitute, keep it. Do not turn every paragraph
-into one sentence. Do not break every triple. Do not inject a fabricated anecdote,
-interview, or named person to sound human. That is a worse failure than the tell it
-replaces.
+One tell does appear here, deliberately. These files use inline-header lists, a bold label
+followed by a description, which the catalogue scores weight 2 in prose. The gate clears it
+for reference documents, and the reason is in the source: the guide traces the habit to
+readmes, how-tos, and specifications, meaning the models copied it from documents where it
+was already the convention. That is the honest version. Claiming the files contain no flagged
+pattern at all would have been the dishonest one.
 
-The test: is this what the writer would have written, or is this a machine performing
-not being a machine? If the second, simplify. If it reads generic, specificity is
-missing, not personality.
+Note also that this file does not ban the em dash. It contains none as a demonstration that
+the constraint is livable, while the rule it hands you is a density rule. The reasoning is
+in `references/conflicts.md`, item 2.
 
----
-
-## Sources
-
-- Wikipedia, *Signs of AI writing* (WikiProject AI Cleanup). Observation, not policy.
-  Scope note in the source: the guide covers informational writing and excludes tells
-  specific to fiction.
-- Russell, Rajendhran, Pham, Iyyer, Wieting. *StoryScope: Investigating idiosyncrasies
-  in AI fiction.* COLM 2026. 10,272 prompts, 61,608 stories, 304 features per story,
-  five models. Scope note in the source: stories average ~5,000 words, and shorter texts
-  cannot support the features extracted.
-- Surface repair patterns consolidated from working style guides; deduplicated against
-  the two sources above.
-
-Both scope notes are load-bearing. The layer split in §0 exists because neither source
-claims what this skill would otherwise assume.
+If you extend this skill, run the audit on your addition first, and add a case to `TESTS.md`
+for any format you make a claim about. A tool that fails its own check is evidence against
+every claim it makes.
