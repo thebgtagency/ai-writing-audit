@@ -64,8 +64,11 @@ runs, including two human-written controls that must come back clean, are in `TE
 git clone https://github.com/thebgtagency/ai-writing-audit ~/.claude/skills/ai-writing-audit
 ```
 
-Or copy the folder into your skills directory. Then ask for an audit on a draft. The skill
-is for text that already exists. It is not for writing a first draft, and
+Or copy the folder into your skills directory. Works with any AI assistant, not only
+Claude: the skill is plain markdown, so you can also hand `SKILL.md` and the `references/`
+folder to any model or agent as its instructions. Then ask for an audit on a draft. The
+skill is for text that already exists. It is not for
+writing a first draft, and writing a first draft, and
 `references/conflicts.md` item 14 explains why composing against a tell list makes text
 worse rather than better.
 
