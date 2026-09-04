@@ -37,17 +37,37 @@ in the same source as having non-trivial error rates and as breaking under parap
 So the output is a reading verdict, not an authorship verdict, and the skill says so on
 every run.
 
+## An example run
+
+Input, 57 words:
+
+> Hey Marcus! Hope you're doing well. I've been following your gym content for a while and
+> I have to say, your commitment to helping people transform their lives is truly
+> inspiring. I work with fitness coaches to streamline their client onboarding and unlock
+> more consistent revenue. Would you be open to a quick chat this week to explore some
+> ideas?
+
+Verdict: reads machine, seven weighted findings, and the gate held back three things that
+look like tells and are not. Repair:
+
+> Marcus, your intake form asks for goals before it asks for a phone number, so people
+> bounce at question four. I moved that question to the end for two coaches this spring and
+> both stopped losing the form. Want the two lines I changed?
+
+What moved: the compliment is replaced by something only Marcus's page could have prompted,
+the claim carries a number and a timeframe, and the ask is smaller than the sale. Ten more
+runs, including two human-written controls that must come back clean, are in `TESTS.md`.
+
 ## Install
 
-Copy the folder into your skills directory:
-
 ```
-~/.claude/skills/ai-writing-audit/
+git clone https://github.com/thebgtagency/ai-writing-audit ~/.claude/skills/ai-writing-audit
 ```
 
-Then ask for an audit on a draft. The skill is for text that already exists. It is not for
-writing a first draft, and `references/conflicts.md` item 14 explains why composing against
-a tell list makes text worse rather than better.
+Or copy the folder into your skills directory. Then ask for an audit on a draft. The skill
+is for text that already exists. It is not for writing a first draft, and
+`references/conflicts.md` item 14 explains why composing against a tell list makes text
+worse rather than better.
 
 ## Files
 
