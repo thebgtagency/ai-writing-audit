@@ -69,6 +69,12 @@ language and there is no fact under it, the repair is a fact or a cut, never a s
 > user of LLMs and you tag 10 pages as being AI-generated, you've probably made one false
 > positive.
 
+Two calibrations from the StoryScope paper, September 2026: its annotators reached a mean
+human to model Cohen's kappa of 0.84 while human to human agreement was 0.74, so even
+trained annotators agreed with each other less than with the model. And the paper's
+related work records expert humans achieving near-perfect accuracy on this task, which
+narrows the "nobody answers it reliably" line to non-expert readers.
+
 Consequence for the output contract: this skill never returns a verdict on authorship. It
 returns a reading verdict, which is a different claim and one that can be checked against
 the text.
@@ -194,6 +200,7 @@ Derived, not quoted. These are cases where a listed tell is the correct form for
 | Bold and bullet formatting | Documentation, checklists, comparison tables |
 | Inline-header lists, meaning a bold label then a description | Reference documents, readmes, how-tos, specifications. The source itself traces the habit to readmes, fan wikis, how-tos, slide decks, and listicles, which is to say the models learned it from documents where it was already the convention. In prose it is weight 2. In a reference document it is the house style and is cleared |
 | Emoji | Social captions, where zero emoji can itself read as machine written |
+| Markdown syntax | Tools and platforms where Markdown is the native format: Obsidian, GitHub, Reddit, Discord, Slack, and exports from iOS Notes or Google Docs. The source states plainly that Markdown alone is not a strong indicator |
 
 The rule behind the table: a tell is a tell when it appears without a job. When the medium
 gives it a job, it is craft.

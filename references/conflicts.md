@@ -115,10 +115,12 @@ stays" is not a standard.
 
 **Ruling.** Both, separated by purpose, because they answer different questions.
 
-- Assessing an unfamiliar text: clusters only. A single hit supports nothing. One published
-  guideline for this material sets the bar at five or more distinct categories before an
-  origin claim is reasonable, and the caution about false accusations in
-  `false-positives.md` explains why.
+- Assessing an unfamiliar text: clusters only. A single hit supports nothing. This skill
+  sets its own working bar at several distinct categories, five or more, before an origin
+  claim is reasonable, and the caution about false accusations in
+  `false-positives.md` explains why. A September 2026 recheck of the Wikipedia source
+  found no numeric bar there, so the number is ours, not the source's. If the published
+  guideline this threshold came from is identified, restore the citation.
 - Cleaning your own draft: fix the single hit if the fix costs nothing. There is no accuracy
   claim at stake, only the text.
 

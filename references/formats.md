@@ -265,6 +265,9 @@ strength the source measured it, and even here the source measured fiction.
 
 **Hard flags.**
 - Section headers in title case, or headers that contain only other headers.
+- Two word template headings of the "X and Y" family, such as "Awards and Recognition" or
+  "Challenges and Legacy". The source calls this heading shape nearly ubiquitous in AI
+  generated articles. Weight 1 unless the pattern repeats across sections.
 - A conclusion section that restates the page.
 - Every section the same length. Even section weight is a template, not an argument.
 - The negative parallelism family: "not X, but Y", "not only X but also Y", "X rather than

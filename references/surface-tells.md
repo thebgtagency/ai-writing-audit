@@ -39,6 +39,11 @@ Real example from the source, a 2024 article revision:
 > The founding of Idescat represented a significant shift toward regional statistical
 > independence
 
+The mechanism the source names: statistically rare, specific claims get replaced with
+generic positive ones. "The inventor of the first train-coupling device" becomes "a
+revolutionary titan of industry". Test: where a specific, checkable claim could have
+stood, does a generic praise phrase stand instead.
+
 In marketing text the same move appears as a closing paragraph explaining why the product
 matters to the industry.
 
@@ -122,6 +127,10 @@ fostering, highlighting, pivotal, showcasing, underscore, vibrant.
 Mid-2025 onward: emphasizing, enhance, highlighting, showcasing, plus the credential
 stacking vocabulary above.
 
+Added from the source's main watch box, September 2026 revision: deep dive, robust,
+highlight as a verb. The box lists no era for them, so treat a single hit as weight 1
+until density shows.
+
 One model family in the source is called out separately for overusing words that sound
 scientific: causal, empirical, correlate, and for still overusing underscore in 2026.
 
@@ -163,7 +172,8 @@ Three shapes, all flagged.
 
 - Not only X but also Y. Also: it is not just X, it is Y.
 - Not X, but Y. Also: it's not X, it's Y. Also: no X, no Y, just Z.
-- X rather than Y.
+- X rather than Y. The source notes this shape is particularly common in Grok output, with
+  its example drawn from Grokipedia.
 
 The source notes this is common in human writing too, especially in myth-busting listicles,
 and is still stereotypically a machine sign. That combination is exactly why it is a
@@ -246,6 +256,9 @@ Test: if the bold were removed, would any reader notice a loss. If bold marks a 
 term the first time it appears, it is doing a job. If it marks whatever seemed important in
 that sentence, it is texture.
 
+The source adds that some newer models and apps carry instructions to avoid boldface
+overuse, so absence of boldface is not evidence either.
+
 ### Inline-header vertical lists, weight 2
 
 A list where each item opens with a bold header, then a colon, then the description. The
@@ -292,10 +305,28 @@ Asterisk bold, hash headings, or markdown tables pasted into a medium that does 
 them. A near-certain sign of text moved out of a chat window, and one of the few tells on
 this list that is close to proof rather than inference.
 
+The source's own limit, quoted: the strong indicator is faulty markup mixing, and
+"Markdown alone is not such a strong indicator", because developers, researchers, and
+technical writers use it natively in Obsidian, GitHub, Reddit, Discord, and Slack. Raise
+the unmixed form only when the medium renders none of it, and never as the lead finding.
+See the gate row in `false-positives.md`.
+
 ## Chat leftovers
 
 These are the highest-precision items in the catalogue. They are not stylistic. They are
 fragments of a conversation with an assistant that were never removed.
+
+### Assistant artifact codes and URL parameters, weight 2
+
+Fragments of a chat backend or a tracking parameter that survived into the published text.
+Watch: :contentReference[oaicite:, turn0search, turn0image, grok_card,
+grok_render_citation_card_json, CJK bracket citation tokens with a dagger (the ChatGPT
+citation format), [attached_file:, [web:, utm_source=openai, utm_source=chatgpt.com,
+utm_source=copilot.com, referrer=grok.com.
+
+The source calls these artifact codes an unambiguous indicator. The utm_source family it
+describes as near-definitively proving the tool was used, which is not the same as proving
+it wrote the text. Mark those as tool use, not authorship.
 
 ### Assistant register, weight 2
 
@@ -331,6 +362,18 @@ and parenthetical instructions such as "(Add your channel URL here)".
 
 In a template or an automated sequence this tell has a second life: an unfilled merge field
 that shipped. Check for it before every send.
+
+### Procedural self-narration, weight 2
+
+Text that describes its own production or editing process in compliance-assuring formula
+language. Watch: ensured that it adheres to, in compliance with, preserved the original
+meaning, refined, enhanced, streamlined, added sourced information, addressing reviewer
+feedback. The source records these as rigid formulae absent before 2023 and growing
+fastest through mid 2026.
+
+Scope: change notes, commit messages, review replies, and any text explaining an edit. A
+plain sentence about what actually changed is not this. The tell is the formula that
+assures compliance rather than reports work.
 
 ### Prompt refusal fragments and abrupt cutoffs, weight 2
 
@@ -368,6 +411,11 @@ Two consequences for anyone maintaining this file:
    positives.
 2. Do not add an item because it feels like AI. The source's own instruction for its
    vocabulary box is to add only what is corroborated. Follow it.
+
+The source page itself now carries an update banner dated August 2026 asking for the most
+recent models, and its em dash section carries a September 2026 proposal box suggesting the
+sign move to historical indicators if recent examples cannot be found. Both are the source
+saying its own list runs behind. Reread it before trusting any era claim.
 
 ## Attribution
 

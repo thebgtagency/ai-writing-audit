@@ -639,3 +639,28 @@ Formats with no case here: newsletter, podcast description, job posting, product
 description, documentation, chat support reply, video title, thumbnail text, subtitle file,
 press release, proposal, invoice note. The skill's derivation procedure covers them by
 construction, and the skill does not claim measured coverage of them.
+
+## Source alignment, September 2026
+
+The Wikipedia source was reread in full (revision 1373016987, 2026-09-03) and the surface
+catalogue aligned with it. Added: assistant artifact codes and utm_source parameters;
+deep dive, robust, and highlight as a verb in the vocabulary list; the Markdown-alone
+caution carried into the gate; the specific-to-generic test on significance inflation;
+procedural self-narration; the Grok note on X rather than Y; the source's own update
+banner and em dash proposal box in the aging notes; the two word heading family in the
+long page profile. Relabelled: the five category bar is now stated as this skill's own
+threshold, because the recheck found no such number in the source.
+
+The StoryScope paper (arXiv 2604.03136v6, 30 pages) was then reread in full and the
+discourse layer aligned with it. Corrected two errors: the LAMP comparison baseline is
+95.5 on the unedited subset, not 93.2, and the morally ambivalent protagonist row had its
+human and AI rates swapped. Added: three missing measured rates (vague allusions 50/72, no
+subplots 57/79, internal understanding 27/47), the style boundary rule with the 257 of 304
+audit, the clustering numbers (rarity 0.71/0.49, d 0.83, 24.7/7.1 in the rarest decile,
+Human to Kimi as the top confusion), the pipeline note (top 20 features, only 6 overlap),
+the 408 to 304 dedup, the ModernBERT 99.9 and trivial 83.3 baselines, the 61,608
+arithmetic, and the annotator agreement numbers (human to model 0.84, human to human 0.74,
+expert humans near perfect) in the false positives file.
+
+No existing case was rerun. The controls in cases 9 and 10 cover none of the new tells,
+so the additions rest on the sources' word only and are untested against human drafts.
