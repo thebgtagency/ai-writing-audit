@@ -65,20 +65,6 @@ the claim carries a number and a timeframe, and the ask is smaller than the sale
 more runs, including three human-written controls that must come back clean, are in
 `TESTS.md`.
 
-## Adapt it to your own use case
-
-The skill is plain markdown. Hand the repo to the agent you already use and tell it to fit your work. Paste this:
-
-```
-Read the ai-writing-audit skill in this repo. Then adapt it to my workflow.
-
-1. My formats are: <list yours, e.g. support replies, landing pages, cold email>
-2. Rewrite the format profiles for those formats only.
-3. Keep the tell catalogue and its weights unchanged.
-4. Add one worked example for each of my formats, using my own drafts.
-5. Before you finish, tell me which checks stay silent for my formats and why.
-```
-
 ## Install
 
 ```
