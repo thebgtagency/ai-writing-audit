@@ -37,6 +37,12 @@ in the same source as having non-trivial error rates and as breaking under parap
 So the output is a reading verdict, not an authorship verdict, and the skill says so on
 every run.
 
+## Watch it work
+
+A client direct message, audited and rewritten. 26 seconds.
+
+<video src="https://github.com/thebgtagency/ai-writing-audit/raw/master/docs/demo.mp4" controls muted playsinline></video>
+
 ## An example run
 
 Input, 57 words:
