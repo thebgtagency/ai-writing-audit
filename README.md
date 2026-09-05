@@ -43,7 +43,6 @@ A client direct message, audited and rewritten. 26 seconds.
 
 ![Watch it work](docs/demo.gif)
 
-Full quality (1080p, with sound): [docs/demo.mp4](https://github.com/thebgtagency/ai-writing-audit/raw/master/docs/demo.mp4)
 
 ## An example run
 
