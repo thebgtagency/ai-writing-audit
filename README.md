@@ -45,12 +45,6 @@ A client direct message, audited and rewritten. 26 seconds.
 
 ![Watch it work](docs/demo.gif)
 
-## Watch it work
-
-A client direct message, audited and rewritten. 26 seconds.
-
-![Watch it work](docs/demo.gif)
-
 ## An example run
 
 Input, 57 words:
