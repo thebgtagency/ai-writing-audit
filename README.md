@@ -43,7 +43,6 @@ A client direct message, audited and rewritten. 26 seconds.
 
 ![Watch it work](docs/demo.gif)
 
-
 ## An example run
 
 Input, 57 words:
@@ -62,8 +61,9 @@ look like tells and are not. Repair:
 > both stopped losing the form. Want the two lines I changed?
 
 What moved: the compliment is replaced by something only Marcus's page could have prompted,
-the claim carries a number and a timeframe, and the ask is smaller than the sale. Ten more
-runs, including two human-written controls that must come back clean, are in `TESTS.md`.
+the claim carries a number and a timeframe, and the ask is smaller than the sale. Thirteen
+more runs, including three human-written controls that must come back clean, are in
+`TESTS.md`.
 
 ## Install
 
@@ -74,8 +74,7 @@ git clone https://github.com/thebgtagency/ai-writing-audit ~/.claude/skills/ai-w
 Or copy the folder into your skills directory. Works with any AI assistant, not only
 Claude: the skill is plain markdown, so you can also hand `SKILL.md` and the `references/`
 folder to any model or agent as its instructions. Then ask for an audit on a draft. The
-skill is for text that already exists. It is not for
-writing a first draft, and writing a first draft, and
+skill is for text that already exists. It is not for writing a first draft, and
 `references/conflicts.md` item 14 explains why composing against a tell list makes text
 worse rather than better.
 
@@ -88,14 +87,16 @@ references/discourse-tells.md the structural layer, with the measured rates
 references/false-positives.md what not to flag, and confidence by format
 references/formats.md         profiles for nine formats plus a derivation procedure
 references/conflicts.md       sixteen disagreements between the sources, and the rulings
-TESTS.md                      ten runs across eight formats, including two controls
+TESTS.md                      fourteen runs across eight formats, including three controls
 ```
 
 ## What it has actually been tested on
 
 Eight formats have a recorded run in `TESTS.md`: direct message, automated sequence,
-objection reply, caption, carousel, spoken script, long page, email. Two controls,
-human-written and rough, come back with zero findings.
+objection reply, caption, carousel, spoken script, long page, email. Three controls,
+human-written, come back with zero findings. Two of them are rough. The third is tidy and
+carries three machine-leaning values on purpose, because a tool that only clears messy
+writing has learned the wrong lesson.
 
 Formats without a recorded run are covered by the four-question derivation procedure at the
 end of `references/formats.md`, and the skill does not claim measured coverage of them.

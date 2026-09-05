@@ -1,6 +1,6 @@
 # Test log
 
-Ten runs across eight formats, plus two controls. Every claim the skill makes about a
+Fourteen runs across eight formats, plus three controls. Every claim the skill makes about a
 format is backed by a run recorded here. Formats not listed here are covered only by the
 derivation procedure in `references/formats.md`, and the skill says so rather than claiming
 coverage it has not tested.
@@ -8,8 +8,9 @@ coverage it has not tested.
 All names, businesses, and numbers in these tests are invented.
 
 Controls exist because a tool that finds problems in every text is not a detector. Cases 9
-and 10 are drafts a person wrote badly and humanly, and both must come back clean. If a
-change to this skill makes a control fail, the change is wrong.
+and 10 are drafts a person wrote badly and humanly, and both must come back clean. Case 12
+is the harder control: a human draft that carries three machine-leaning values on purpose,
+and still has to pass. If a change to this skill makes a control fail, the change is wrong.
 
 ## Case 1. Direct message, first touch
 
@@ -29,10 +30,20 @@ FORMAT: direct message, first touch
 LENGTH: 57 words        LANGUAGE: English (vocabulary layer: run)
 VOICE SAMPLE: none supplied
 CONFIDENCE: argued transfer, weakest case. Neither source measured messages.
-VERDICT: reads machine (7 weighted findings, count rule for text under 60 words)
+MODEL: unknown
+VERDICT: reads machine (7 weighted findings, count rule for text under 60 words,
+         spread 2 of 7 themes and not eligible for an origin claim at this length)
+
+STRUCTURAL TEMPLATE
+agents: Marcus, named. The sender, never named.
+events: null. Nothing happens.
+causality: null. Two claims sit next to each other.
+revelation: null.
+temporal order: null.
+setting: null.
 
 FINDINGS
-1. [discourse, w2] Nothing in this message required looking at Marcus.
+1. [discourse, w2, theme 4] Check 6, named reference. Nothing here required looking at Marcus.
    Evidence: "following your gym content for a while", "commitment to helping people"
    Why: both sentences survive being sent to any coach. Named reference check fails.
    Repair: one observation about his actual content, or do not send.
@@ -46,12 +57,19 @@ FINDINGS
    Tell: permission close. The ask is larger than the sale.
    Repair: an ask smaller than the sale
 6. [surface, w1] "Hope you're doing well"  Tell: pleasantry opening  Repair: CUT
-7. [discourse, w2] No stance. Nothing here could be disagreed with.
+7. [discourse, w2, theme 7] Check 5, moral polarity. No stance. Nothing here could be
+   disagreed with.
 
 GATED
 - "Hey Marcus!" exclamation mark : native to the format
 - second person throughout : native
 - no evidence or citation : native, nobody cites in a message
+- checks 2, 3, 4, 7, 8, 9, 10 : NOT RUN. 57 words, and Pass 0 allows only checks 1, 5 and 6
+  below 60. Their silence is a silence, not a pass
+
+THEME SPREAD: themes 4 and 7. Two of seven, from the three checks the length allowed. The
+assessment bar of four cannot be reached here by construction, so no origin claim is
+available. Deliverable mode is unaffected and all seven findings stand.
 
 WHAT IS WORKING
 - Nothing yet. The draft has no plain verb, no specific, and no roughness to protect.
@@ -84,7 +102,8 @@ MODE: deliverable
 FORMAT: automated message sequence
 LENGTH: 61 words across 3 steps
 CONFIDENCE: argued transfer
-VERDICT: reads machine (8 weighted findings)
+MODEL: unknown
+VERDICT: reads machine (8 weighted findings, spread 1 of 7 themes)
 
 FINDINGS
 1. [scale, w2] "Loved your recent post about {{topic}}"
@@ -102,12 +121,19 @@ FINDINGS
 5. [surface, w2] "brands like {{company}}"  Tell: category reason for reaching out
 6. [surface, w2] "scale their content"  Tell: promotional register with no fact
 7. [format, w2] "Worth a chat?"  Tell: permission close
-8. [discourse, w2] Named reference check fails in all three steps.
+8. [discourse, w2, theme 4] Check 6, named reference. Fails in all three steps.
 
 GATED
 - merge fields themselves : native. The tell is the sentence around the field.
 - repeating the offer across steps : native, a sequence is allowed to be a sequence
 - step 3 being short : native
+- check 9, reader address : second person is native to the format, not scored
+- check 10, recontextualization : silent. Three steps, no fact placed to reframe an earlier
+  one. At 61 words there is not enough text to call the silence a finding
+
+THEME SPREAD: theme 4 only. One of seven. Seven of the eight findings are scale, surface or
+format tells rather than discourse, which is the honest shape of this format: a sequence
+fails at the template level before it fails at the structural one.
 
 WHAT IS WORKING
 - Step 3 says "last one from me", which is honest about the medium and reads human.
@@ -139,29 +165,39 @@ MODE: deliverable
 FORMAT: objection reply ("I need to think about it")
 LENGTH: 62 words
 CONFIDENCE: argued transfer
-VERDICT: reads machine (7 weighted findings, density 11.3 per 100 words)
+MODEL: unknown
+VERDICT: reads machine (7 weighted findings, density 11.3 per 100 words,
+         spread 3 of 7 themes)
 
 FINDINGS
-1. [discourse, w2] Resolution by internal understanding.
+1. [discourse, w2, theme 3] Check 4, internal resolution.
    Evidence: "comes down to how badly you want this", "decide to bet on themselves",
    "when you're ready to take that step"
    Why: three sentences resolve the exchange inside the reader's head. This is AI feature
    18 in the discourse catalogue and it is the defining move of this format's failure.
    Repair: replace with one external, small, checkable next step.
-2. [discourse, w2] Nothing is conceded. The objection is not answered anywhere.
+2. [discourse, w2, theme 1] Check 2, single track. Nothing is conceded and the objection
+   is not answered anywhere.
 3. [surface, w2] "Totally understand, and I appreciate you being upfront"
    Tell: empathy preamble that costs nothing and delays the answer  Repair: CUT
 4. [surface, w2] "A lot of our best clients said the exact same thing"
    Tell: vague attribution, quantity unspecified  Repair: name how many, or cut
 5. [surface, w1] "At the end of the day"  Tell: filler  Repair: CUT
-6. [discourse, w2] Moral polarity: the reader is sorted into people who decide and people
-   who do not. Nothing ambivalent, no case where the answer is no.
+6. [discourse, w2, theme 7] Check 5, moral polarity. The reader is sorted into people who
+   decide and people who do not. Nothing ambivalent, no case where the answer is no.
 7. [format, w2] No sentence in the reply is true and unhelpful to the sale.
 
 GATED
 - exclamation marks : native to the medium
 - second person : native
 - short length : native, and correct here
+- check 9, reader address : second person is native, not scored
+- check 10, recontextualization : silent at 62 words, and an objection reply is answering
+  rather than disclosing, so a reframe is not the expected shape here
+
+THEME SPREAD: themes 1, 3 and 7, each carrying a weight 2 hit. Three of seven, one short of
+the assessment bar. In deliverable mode that changes nothing and the rewrite still runs.
+Recorded because it is the closest a legacy case comes to the bar without meeting it.
 
 WHAT IS WORKING
 - Nothing. Every sentence pulls one direction.
@@ -197,7 +233,18 @@ MODE: deliverable
 FORMAT: caption
 LENGTH: 78 words
 CONFIDENCE: argued transfer
-VERDICT: reads machine (8 weighted findings, density 10.3 per 100 words)
+MODEL: unknown
+VERDICT: reads machine (9 weighted findings, density 11.5 per 100 words,
+         spread 4 of 7 themes)
+
+STRUCTURAL TEMPLATE
+agents: the writer, unnamed.
+events: a posting habit changed. Undated.
+causality: inspiration -> irregularity -> process -> everything changed. The last link is
+  asserted and empty.
+revelation: null.
+temporal order: linear.
+setting: null.
 
 FINDINGS
 1. [surface, w2] "It's not. It's about systems." and "Consistency isn't a personality
@@ -205,27 +252,39 @@ FINDINGS
    Tell: negative parallelism, twice in 78 words. Once is a rhetorical choice, twice is a
    shape.
    Repair: keep at most one, and only if the second half is concrete.
-2. [discourse, w2] "Consistency isn't a personality trait. It's a decision you make once and
-   then protect."
+2. [discourse, w2, theme 1] Check 1, self-explaining. "Consistency isn't a personality
+   trait. It's a decision you make once and then protect."
    Tell: the closing lesson line. The caption states its own moral.
    Repair: CUT. Test applied: the caption is better without the final two lines.
-3. [discourse, w2] "Then I built a simple process, and everything changed."
+3. [discourse, w2, theme 3] Check 3, tidy causality. "Then I built a simple process, and
+   everything changed."
    Tell: the causal chain has no content. The thing that changed is never named.
    Repair: name the process in one sentence, or cut the claim.
-4. [surface, w2] "My stomach would drop"
+4. [discourse, w2, theme 2] Check 7, emotion handling. "My stomach would drop"
    Tell: embodied emotion as the default carrier. Measured at 81 percent for machine text
    against 38 percent human.
    Repair: "I felt sick about it" or name what actually happened.
 5. [surface, w1] Opening line is a "most people think X" hook that announces itself.
-6. [discourse, w2] Single track. No week where the system failed, no cost named.
+6. [discourse, w2, theme 3] Check 2, single track. No week where the system failed, no
+   cost named.
 7. [format, w2] The closing question is rhetorical and expects no answer.
 8. [surface, w1] Every paragraph is one to two lines of identical weight.
+9. [discourse, w2, theme 6] Check 10, recontextualization. Added on rerun. Nothing later
+   changes what an earlier line meant. "everything changed" is the place a reframe would
+   sit, and it is filled with an assertion instead.
+   Repair: name what the process actually was, and put it after the belief it corrects.
 
 GATED
 - line breaks every sentence : native
 - second person : native
 - contractions and fragments : native
 - zero emoji : not flagged, and not required either
+- check 9, reader address : "Which one are you right now?" addresses the reader, but second
+  person is native to a caption, so it is not scored in either direction. Finding 7 handles
+  the rhetorical question as a format tell instead
+
+THEME SPREAD: themes 1, 2, 3 and 6, each carrying a weight 2 hit. Four of seven, which meets
+the assessment bar. This is the shortest text in the file that reaches it, at 78 words.
 
 WHAT IS WORKING
 - "Some weeks I posted six times. Some weeks I posted nothing." Specific, uneven, and the
@@ -265,7 +324,8 @@ MODE: deliverable
 FORMAT: carousel, 8 slides
 LENGTH: 62 words across 8 slides
 CONFIDENCE: argued transfer
-VERDICT: reads machine (9 weighted findings)
+MODEL: unknown
+VERDICT: reads machine (9 weighted findings, spread 2 of 7 themes)
 
 FINDINGS
 1. [deck, w2] Slides 2 through 6 are the same grammatical shape five times: "Mistake N: You
@@ -280,17 +340,26 @@ FINDINGS
    Repair: CUT slide 7.
 5. [surface, w2] "transform your retention and unlock sustainable growth"
    Tell: promotional register, two vocabulary items, no fact.
-6. [deck, w2] No slide pulls sideways. No exception, no case where the fix failed.
+6. [deck, w2, theme 1] Check 2, single track, run on the deck. No slide pulls sideways.
+   No exception, no case where the fix failed.
 7. [deck, w1] Five mistakes, five slides, five identical shapes. The count matches the
    promise too neatly.
-8. [deck, w2] No slide carries a number, a name, or a date. Named reference check fails
-   across the whole deck.
+8. [deck, w2, theme 4] Check 6, named reference, run on the deck. No slide carries a
+   number, a name, or a date.
 9. [format, w1] Slide 8 is a generic follow ask with no connection to the deck.
 
 GATED
 - fragments and missing verbs : native to slides
 - bold as emphasis : native, this is a visual medium
 - eight slides : not a finding. Deck length is not a tell.
+- check 9, reader address : second person is native to a slide, not scored
+- check 10, recontextualization : NOT RUN as a scored check. The deck is 62 words and the
+  shuffle test below covers the same ground more directly for this format
+
+THEME SPREAD: themes 1 and 4. Two of seven. The deck fails mostly on repetition and layout,
+which are deck and surface tells, and the discourse layer adds only two themes. A carousel
+does not carry enough text to reach the bar, and this run is the evidence for that claim
+rather than an assertion of it.
 
 WHAT IS WORKING
 - The topic is narrow and the deck knows what it is about. Keep the scope.
@@ -326,9 +395,18 @@ MODE: deliverable
 FORMAT: spoken script, roughly 30 seconds at speaking pace
 LENGTH: 76 words
 CONFIDENCE: argued transfer, and human speech is measurably drifting toward model output
-VERDICT: reads machine (8 weighted findings)
+MODEL: unknown
+VERDICT: reads machine (9 weighted findings, spread 4 of 7 themes)
 
 READ-ALOUD PASS: performed. Stumbles marked below.
+
+STRUCTURAL TEMPLATE
+agents: the listener, addressed. No one else.
+events: null. Three faults are asserted, none happens.
+causality: null. The three items are a list, not a chain.
+revelation: null.
+temporal order: null.
+setting: null.
 
 FINDINGS
 1. [spoken, w2] "Moreover"
@@ -342,11 +420,16 @@ FINDINGS
    Repair: give one item a sentence of its own, or drop to two items.
 4. [surface, w1] "significant improvement in your results"  Tell: promotional register with
    no number.
-5. [discourse, w2] Single track. Nothing costs anything, nothing failed.
-6. [discourse, w2] Named reference check fails. No number, no name, no case.
+5. [discourse, w2, theme 1] Check 2, single track. Nothing costs anything, nothing failed.
+6. [discourse, w2, theme 4] Check 6, named reference. No number, no name, no case.
 7. [spoken, w2] The final line summarizes and then asks for comments. An outro that
    restates what was just said.
 8. [surface, w1] "immediately" and "consistently" are adverbs doing no work when spoken.
+9. [discourse, w2, theme 6] Check 10, recontextualization. Added on rerun. "Moreover, most
+   people focus on tactics when the real issue is positioning" is placed where a reframe
+   would go and does not reframe anything: positioning is never connected to the three
+   items above it, so no earlier line changes meaning.
+   Repair: cut the sentence, or make the third item the thing positioning corrects.
 
 GATED
 - "If you're struggling" as an opener : native to the format
@@ -355,6 +438,14 @@ GATED
 - repetition of "you're" : native, repetition is how listeners keep up
 - "three things" as an announced structure : native to spoken teaching, and not flagged as
   rule of three. The count was promised to the listener, so it has a job.
+- check 9, reader address : "Let me know your thoughts below" names the medium and turns to
+  the listener. Second person is native to a script, so this is not scored as a positive
+  either. Finding 7 handles the line as a spoken outro tell instead
+
+THEME SPREAD: themes 1, 4 and 6 from the discourse layer, plus theme 7 by absence, since no
+feeling is named anywhere in a script whose whole subject is struggling. Four of seven, and
+the bar is met. Note that three of the eight original findings are spoken tells rather than
+discourse ones, so the spread and the density are measuring different failures here.
 
 WHAT IS WORKING
 - The opening names a specific reader state in six words. Keep it.
@@ -410,7 +501,17 @@ FORMAT: long page section
 LENGTH: 213 words
 CONFIDENCE: medium. The Wikipedia guide names blogs and editorials as places its patterns
 legitimately appear, so this is the closest format to a measured source.
-VERDICT: reads machine (density 8.9 per 100 words)
+MODEL: unknown
+VERDICT: reads machine (density 8.9 per 100 words, spread 4 of 7 themes)
+
+STRUCTURAL TEMPLATE
+agents: null. No customer, no team, no person.
+events: null. No month-end close ever happens.
+causality: manual process -> bottleneck -> platform -> improvement. Unbroken, and every
+  link is asserted.
+revelation: null.
+temporal order: null. No date anywhere in 213 words.
+setting: null.
 
 FINDINGS
 1. [surface, w2] Vocabulary density: landscape (twice), crucial, robust, leveraging,
@@ -433,16 +534,34 @@ FINDINGS
    Tell: negative parallelism, in the closing position.
 8. [surface, w2] Title case in both headings.
 9. [surface, w2] Inline-header bullet list: bold label, colon, description, three times.
-10. [discourse, w2] Single causal chain from problem to solution. No paragraph costs the
-    writer anything. The one section that could have (Challenges) resolves itself in the
-    same paragraph.
-11. [discourse, w2] Named reference check fails. No customer, no number, no product, no
-    date in 213 words.
+10. [discourse, w2, theme 3, WEAK] Check 3, tidy causality. Single chain from problem to
+    solution, no paragraph costs the writer anything, and the one section that could have
+    (Challenges) resolves itself in the same paragraph. Labelled weak under gate question 4:
+    human mean 3.92 against AI 4.20. The verdict does not rest on it, because finding 5
+    covers the same span as a weight 2 surface tell.
+11. [discourse, w2, theme 4] Check 6, named reference. No customer, no number, no product,
+    no date in 213 words.
+12. [discourse, w2, theme 1] Check 1, self-explaining. "In conclusion, automated bookkeeping
+    is not just a convenience, it's a strategic investment." Finding 6 records the same span
+    as a surface tell. Counted once, tagged here so the theme is visible to the spread line.
+13. [discourse, w2, theme 6] Check 10, recontextualization. Added on rerun. The Challenges
+    section is the one place a reframe was available, and it cancels itself inside a single
+    paragraph with "However".
+    Repair: let the limitation stand unresolved, which is also finding 5's repair.
 
 GATED
 - headings and bullets on a long page : native. Structure is the product here.
 - length : not a tell
 - "However" once : weight 0, transition words in isolation are an ineffective indicator
+- check 9, reader address : the page never turns to the reader and never names its own
+  medium. Not scored, because a product page addressing the reader is neither expected nor
+  unexpected, and the paper's 67 against 39 was measured on fiction where third person is
+  the default
+
+THEME SPREAD: themes 1, 3, 4 and 6. Four of seven, with a weight 2 hit in 1, 4 and 6 and a
+weak hit in 3. The bar is met on three themes carrying weight 2. This is the legacy case
+that most closely matches case 11, which was written from scratch under the new rules, and
+the two agree.
 
 WHAT IS WORKING
 - The three benefit labels are the right three benefits. The labels survive; the
@@ -499,7 +618,16 @@ MODE: deliverable
 FORMAT: email, cold
 LENGTH: 96 words
 CONFIDENCE: argued transfer
-VERDICT: reads machine (density 10.4 per 100 words)
+MODEL: unknown
+VERDICT: reads machine (density 10.4 per 100 words, spread 2 of 7 themes)
+
+STRUCTURAL TEMPLATE
+agents: Jennifer, named and not described. David, named, titled, and otherwise absent.
+events: null.
+causality: null.
+revelation: null.
+temporal order: "within the first quarter" and "next week". Two spans, no order between them.
+setting: null.
 
 FINDINGS
 1. [format, w2] Subject line in title case and phrased as a benefit rather than a
@@ -516,13 +644,25 @@ FINDINGS
 7. [format, w2] Sign-off stack: close, name, title, company, booking link.
 8. [format, w2] The P.S. carries a softener rather than content, which is a template
    convention rather than a person.
-9. [discourse, w2] Named reference check fails. Nothing in the email required knowing
-   anything about Jennifer or her team.
+9. [discourse, w2, theme 4] Check 6, named reference. Nothing in the email required
+   knowing anything about Jennifer or her team.
+10. [discourse, w2, theme 3] Check 4, internal resolution. Added on rerun. "explore how we
+   might be able to support your goals" asks the reader to arrive at the value themselves.
+   The email never states what it would do.
+   Repair: name the thing done, in one sentence, before the ask.
 
 GATED
 - greeting and sign-off : native to email
 - one link : native
 - "Hi Jennifer" : native
+- check 9, reader address : second person is native to a cold email, not scored
+- check 10, recontextualization : silent. A 96 word cold email has no room to place a
+  reframe, and its absence here is a property of the format rather than of this draft
+
+THEME SPREAD: themes 3 and 4. Two of seven, from ten findings. The email reads machine on
+format and surface tells almost entirely, which is the useful result: a low spread does not
+mean a clean text, it means the failure is not structural. Assessment mode would return no
+origin claim here while deliverable mode still rewrites the whole thing.
 
 WHAT IS WORKING
 - The ask is specific about length. Fifteen minutes is a real number. Keep it.
@@ -557,7 +697,8 @@ This draft is rough, unbalanced, and written by a person. It must pass.
 MODE: deliverable
 FORMAT: direct message, first touch
 LENGTH: 44 words
-VERDICT: reads human (0 weighted findings)
+MODEL: unknown
+VERDICT: reads human (0 weighted findings, spread 0 of 7 themes)
 
 FINDINGS
 none
@@ -571,9 +712,14 @@ GATED
 - "like 40cm" : imprecise, and a person's imprecision. Not flagged.
 
 WHAT IS WORKING
-- A named location. A specific measurement. A named failure mode. An ask that is not an ask.
-- The last clause admits the observation might be wrong, which is the ambivalence check
-  passing.
+- Check 6 fires positive. A named location, a specific measurement, a named failure mode.
+  47 against 24.
+- Check 5 fires positive. The last clause admits the observation might be wrong.
+  59 against 38.
+- Check 1 passes. No lesson is stated anywhere.
+- Checks 2, 3, 4, 7, 8, 9, 10 were not eligible at 44 words. The pass rests on the three
+  that ran, which is the honest reading and is why this control is a control and not a
+  proof.
 ```
 
 **Result: pass.** If a future change to the surface layer makes this fail, the change is
@@ -597,7 +743,8 @@ wrong.
 MODE: deliverable
 FORMAT: caption
 LENGTH: 61 words
-VERDICT: reads human (0 weighted findings)
+MODEL: unknown
+VERDICT: reads human (0 weighted findings, spread 0 of 7 themes)
 
 FINDINGS
 none
@@ -609,14 +756,351 @@ GATED
 - lowercase throughout : native
 
 WHAT IS WORKING
-- Named account, named month, named decision, named cost to the writer.
-- Moral polarity is ambivalent and points at the writer.
-- The ending does not explain itself. Delete-the-last-line test: removing "tomorrow is a
-  normal day" makes it worse, which is the opposite of the machine pattern.
-- No lesson stated anywhere.
+- Check 6 fires positive. Named account, named month, named decision, named cost.
+- Check 5 fires positive. Moral polarity is ambivalent and points at the writer.
+- Check 10 fires positive, which the original run did not record because the check did not
+  exist. "we could not stretch. i knew that when i said it" changes what "i said we could
+  stretch" meant one clause earlier. Human mean 3.28 against AI 2.95.
+- Check 1 passes. The ending does not explain itself. Delete-the-last-line test: removing
+  "tomorrow is a normal day" makes it worse, which is the opposite of the machine pattern.
+- Check 9 not scored. Second person is native to a caption, and this draft uses none, which
+  carries no signal in either direction.
 ```
 
 **Result: pass.**
+
+## Case 11. Long page section, run under the seven theme bar
+
+Written to exercise the checks added in September 2026: theme spread instead of raw density,
+the weak label on near-tied features, and checks 9 and 10.
+
+**Input, 186 words**
+
+> Most agencies lose clients in the first thirty days, and the reason is almost always the
+> same. The relationship starts with enthusiasm, then the first deliverable arrives later
+> than expected, and trust erodes from there. What follows is a slow drift toward silence.
+>
+> We rebuilt our onboarding around a single principle: certainty beats speed. Every new
+> client now receives a written schedule before any work begins, and every milestone has a
+> named owner. When a date moves, the client hears it from us first.
+>
+> The result has been a meaningful shift in how our partnerships begin. Clients who know
+> what is coming ask fewer questions, and the questions they do ask are better ones. Teams
+> that once spent their mornings managing anxiety now spend them doing the work.
+>
+> The lesson is that clarity is not a nice addition to a process. It is the process. Once
+> you understand that, everything else about onboarding becomes simpler.
+
+**Output**
+
+```
+MODE: assessment
+FORMAT: long page section
+LENGTH: 186 words        LANGUAGE: English (vocabulary layer: run)
+VOICE SAMPLE: none supplied
+CONFIDENCE: argued transfer. Neither source measured a landing page.
+MODEL: unknown
+VERDICT: reads machine (density 4.8 per 100 words, spread 4 of 7 themes)
+
+STRUCTURAL TEMPLATE, filled first
+agents: null. No person is named anywhere, including the writer.
+events: one state change, stated as a general pattern rather than as something that happened.
+causality: enthusiasm -> late deliverable -> erosion -> silence. Unbroken.
+revelation: null. Nothing is withheld and nothing is disclosed late.
+temporal order: linear. No jumps, no scene, no date.
+setting: null.
+
+FINDINGS
+1. [discourse, w2, theme 1] "The lesson is that clarity is not a nice addition to a process."
+   Check 1, self-explaining. The text states its own takeaway.
+   Repair: CUT. The two paragraphs above already carry it.
+2. [discourse, w2, theme 1] "Once you understand that, everything else about onboarding
+   becomes simpler."
+   Check 1 again, narratorial commentary on significance.
+   Repair: CUT.
+3. [discourse, w2, theme 4] Named reference check fails. No client, no date, no number, no
+   tool, no figure. "about a third" would have been a fact. "a meaningful shift" is not.
+   Repair: ask the writer for the retention number. Do not supply one.
+4. [discourse, w2, theme 6] Check 10, recontextualization. Nothing arrives that changes what
+   an earlier sentence meant. Disclosure order equals assembly order.
+   Repair: structural. If the real story has a reversal, it belongs before the close.
+5. [discourse, w1, theme 3] Check 4, internal resolution. The close asks the reader to
+   understand, not to do anything.
+   Repair: name the external step.
+6. [discourse, w1, theme 3, WEAK] Check 3, tidy causality. Four sentences, one chain, no
+   admitted cost. Labelled weak under gate question 4: human mean 3.92 against AI 4.20.
+   Repair: name the case where the schedule did not help.
+7. [surface, w2] "The result has been a meaningful shift in how our partnerships begin"
+   Tell: promotional register with no fact under it.
+   Repair: the number, or CUT.
+8. [surface, w1] "a slow drift toward silence"
+   Tell: significance inflation, mild.
+   Repair: keep if the writer talks this way, cut otherwise.
+
+GATED (looked like findings, are not)
+- "Once you understand that" second person : native to a page, cleared by the format table
+- check 9, reader address : not scored. Second person is the default register here, so its
+  presence carries no signal and its absence would carry none either
+- "certainty beats speed" as a three word parallel : one instance, weight 1 and no company
+- checks 2 and 5 : the text has one thread and one polarity, but both readings collapse into
+  findings 1 and 6 and are not double counted
+
+THEME SPREAD: 1, 3, 4, 6. Four of seven, with a weight 2 hit in themes 1, 4 and 6. Theme 3
+carries no weight 2 hit, so the bar is met on three themes and is reported that way.
+
+WHAT IS WORKING
+- "every milestone has a named owner" is the one concrete sentence. Protect it.
+- No em dash, no bullet formatting, no rule of three stacking. The surface layer is nearly
+  clean, which is the point: this draft would pass a word list pass and still read machine.
+```
+
+**Result: pass.** The case exists to prove three things. Density alone would have called this
+machine on findings 1, 2 and 7 without ever asking whether the spread supported it. Finding 6
+would have been a weight 2 verdict carrier before gate question 4 existed. And findings 3 and
+4 come from checks the skill did not have before this revision.
+
+## Case 12. Control, human-written long form that trips three machine-leaning checks
+
+The load bearing control for gate question 4. This draft is tidy, unified, and resolved by
+the writer's own choice, which are three machine-leaning values. It must still pass.
+
+**Input, 187 words**
+
+> We stopped doing discovery calls in March. Not because they did not work, they worked
+> fine, we closed about a third of them. We stopped because I could not do six of them in a
+> week and still be any good at the actual work by Thursday.
+>
+> So now there is a form. Eleven questions, most of them about budget, because that was the
+> thing I kept finding out on minute forty of a fifty minute call.
+>
+> Close rate went to about a fifth. That is worse. I know it is worse. What I did not expect
+> was that the fifth who do book are people I would have wanted anyway, and the Thursdays
+> came back.
+>
+> I would not tell a newer agency to do this. If you have the hours, take the calls, you
+> learn more on a call than a form will ever give you. This was a trade I made because I ran
+> out of Thursdays, not because I found a better system.
+
+**Output**
+
+```
+MODE: assessment
+FORMAT: long page section
+LENGTH: 187 words
+MODEL: unknown
+VERDICT: reads human (0 weighted findings, spread 0 of 7 themes)
+
+FINDINGS
+none
+
+GATED (looked like findings, are not)
+- thematic unity : everything here is about one decision and nothing pulls sideways. Gate
+  question 4 clears it. Human mean 4.41 against AI 4.74, and a 187 word section about one
+  decision has no room for a second thread. Weak by construction, not by measurement.
+- agency in resolution, protagonist choice : the writer decided and the writer acted, which
+  is the machine-leaning value at 46 against 69. Cleared, because the choice is named, dated,
+  costed and regretted. The tell is a resolution that turns on a private act of will with
+  nothing under it. This one has a form with eleven questions under it.
+- "This was a trade I made because I ran out of Thursdays, not because I found a better
+  system" : reads like a stated lesson, check 1. Cleared. It is an admission against the
+  writer's own case, not a takeaway offered to the reader.
+- "I would not tell a newer agency to do this" : reads like moralizing. Cleared, same reason.
+  It argues against the thing the page is describing.
+
+WHAT IS WORKING
+- Check 10 fires positive. "What I did not expect was that the fifth who do book are people
+  I would have wanted anyway" changes what "That is worse" meant two sentences earlier. That
+  is recontextualization after surprise, human mean 3.28 against AI 2.95.
+- Check 9 fires positive. "If you have the hours, take the calls" addresses a reader the
+  writer can picture, and the last paragraph names the situation it is written from.
+- Check 5 fires positive. Moral polarity is ambivalent and points at the writer. 59 against 38.
+- Check 6 fires positive, heavily. March, eleven, a third, a fifth, minute forty, fifty
+  minute, Thursday. Seven concrete anchors in 187 words.
+- Check 7 fires positive. "I could not be any good at the actual work by Thursday" is an
+  explicit state rather than a tightening chest. 29 against 8.
+- Check 3 passes. "That is worse. I know it is worse." is an admitted cost, which breaks the
+  chain the machine-leaning value would have kept.
+- Roughness to protect: "they worked fine" as a comma splice, "So now there is a form" as a
+  plain is-phrase, the repetition of Thursday.
+```
+
+**Result: pass.** If a future change makes this draft fail, the change is wrong. It is the
+only case in this file where machine-leaning values are present and the correct verdict is
+still human, which is the whole content of gate question 4.
+
+## Case 13. Direct message, under 60 words, run under the new contract
+
+Written to test the opposite of case 11: that the September 2026 machinery goes quiet when
+the text is too short to support it, instead of finding something anyway.
+
+**Input, 54 words**
+
+> Hi Dana, quick one. I noticed your studio has been posting client transformations
+> consistently, which shows real dedication to your craft. We help boutique studios turn
+> that content into a predictable booking system without adding to your workload. Worth a
+> short conversation to see if there is a fit?
+
+**Output**
+
+```
+MODE: assessment
+FORMAT: direct message, first touch
+LENGTH: 54 words        LANGUAGE: English (vocabulary layer: run)
+VOICE SAMPLE: none supplied
+CONFIDENCE: argued transfer, weakest case. Neither source measured messages.
+MODEL: unknown
+VERDICT: no assessment verdict available at this length
+         (count rule: 5 weighted findings, spread not computable)
+
+STRUCTURAL TEMPLATE, filled before the discourse checks
+agents: Dana, named but not described. The sender, never named.
+events: null. Nothing happens. A capability is asserted.
+causality: null. "Consistent posting" and "predictable bookings" are placed next to each
+  other, not linked.
+revelation: null.
+temporal order: null. No time reference of any kind.
+setting: "your studio", generic.
+
+FINDINGS
+1. [discourse, w2, theme 4] Check 6, named reference. "client transformations" and
+   "boutique studios" are category words. No post, no date, no number, no studio name.
+   Repair: one thing only Dana's account could have prompted, or do not send.
+2. [surface, w2] "which shows real dedication to your craft"
+   Tell: promotional register with no fact under it, and a compliment that fits any account.
+   Repair: CUT.
+3. [surface, w2] "a predictable booking system without adding to your workload"
+   Tell: significance inflation. The benefit is asserted, the mechanism is absent.
+   Repair: name the mechanism or the number.
+4. [discourse, w2, theme 1] Check 1, self-explaining. The message states why its own
+   observation matters rather than letting the observation do the work.
+   Repair: CUT, same span as finding 2.
+5. [format, w2] "Worth a short conversation to see if there is a fit?"
+   Tell: permission close. The ask is larger than the sale, and the profile flags it.
+   Repair: an ask smaller than the sale.
+
+GATED (looked like findings, are not)
+- second person throughout : native to the format
+- "Hi Dana, quick one." fragment : native, and reads as typed
+- no citation, no source : native, nobody cites in a message
+- check 9, reader address : not scored. Second person is the default register here
+- check 10, recontextualization : NOT RUN. 54 words, and the length table stops the
+  discourse layer at checks 1, 5 and 6. Its silence is a silence, not a pass
+- checks 2, 3, 4, 7, 8 : NOT RUN, same rule
+
+THEME SPREAD: themes 1 and 4 only. Two of seven, and only three checks were eligible to
+run. The bar needs four themes, so it cannot be met at this length and is not approached.
+Assessment mode returns no origin verdict here. This is the correct outcome, not a failure.
+
+WHAT IS WORKING
+- "Hi Dana, quick one" is the one line a person would type. Protect it.
+```
+
+**Result: pass.** The case exists to prove restraint. Every finding above comes from the
+three checks the length table allows plus the surface layer. The seven theme bar, checks 9
+and 10, and the structural template all reported their own inapplicability rather than
+producing content. A tool that returns an origin verdict on 54 words is guessing, and this
+one now says so in the verdict line.
+
+## Case 14. Spoken script, model known, fingerprint block active
+
+The only case that exercises the model-conditional block. It applies because the draft was
+produced by the assistant running the audit, which is the one situation where the author is
+known.
+
+**Input, 118 words, roughly 46 seconds at speaking pace**
+
+> Most people think the hardest part of running an agency is finding clients. It is not.
+> The hardest part is the quiet stretch after you sign one, when the work is real and the
+> excitement is gone.
+>
+> I used to fill that stretch with activity. More calls, more posts, more everything. It
+> felt like progress and it was motion.
+>
+> What changed was small. I started writing down what I actually finished each day, not what
+> I planned. Some days the list was one line. But the list was true, and a true list you can
+> build on.
+>
+> Years later, that habit is still the thing I would keep if I had to drop everything else.
+
+**Output**
+
+```
+MODE: deliverable
+FORMAT: spoken script, roughly 46 seconds
+LENGTH: 118 words        LANGUAGE: English (vocabulary layer: run, demoted per profile)
+VOICE SAMPLE: none supplied
+CONFIDENCE: argued transfer, and the spoken override outranks the word list
+MODEL: Claude, known. Fingerprint block active at weight 1.
+VERDICT: reads machine (density 4.2 per 100 words, spread 3 of 7 themes)
+
+STRUCTURAL TEMPLATE, filled before the discourse checks
+agents: the speaker, unnamed. No second person appears in the story.
+events: one habit change, undated.
+causality: activity -> emptiness -> list -> durability. Unbroken.
+revelation: null. Nothing lands late.
+temporal order: linear, then a forward step at the close.
+setting: null.
+
+FINDINGS
+1. [discourse, w2, theme 1] Check 1, self-explaining. "a true list you can build on" and
+   "the thing I would keep if I had to drop everything else" both state the takeaway.
+   Repair: keep one, CUT the other. The second is the weaker of the two.
+2. [discourse, w2, theme 4] Check 6, named reference. No date, no number, no client, no
+   tool. "Years later" is the only time marker and it is unanchored.
+   Repair: the year, or the number of lines on a real day.
+3. [discourse, w2, theme 6] Check 10, recontextualization. Nothing later changes what an
+   earlier line meant. "It felt like progress and it was motion" is the closest, and it
+   arrives before the thing it would reframe rather than after.
+   Repair: structural. Put the correction after the belief, not alongside it.
+4. [surface, w2] "It felt like progress and it was motion."
+   Tell: negative parallelism, and the spoken profile flags symmetrical pairs specifically.
+   Read aloud, the balance is audible.
+   Repair: "It felt like progress. It was not."
+5. [surface, w2] "Most people think the hardest part is finding clients. It is not."
+   Tell: negative parallelism again, in the opening position.
+   Repair: open on the quiet stretch itself.
+6. [discourse, w1, theme 3, WEAK] Check 3, tidy causality. Four beats, one chain, no
+   admitted cost. Weak under gate question 4: human mean 3.92 against AI 4.20.
+   Repair: name what the habit cost or failed to fix.
+7. [fingerprint, w1] Flat event escalation. Intensity is identical at the open and the
+   close. Claude's highest ranked fingerprint, uniqueness 22.4.
+   Repair: let one beat be louder than the others, or accept a level script on purpose.
+8. [fingerprint, w1] "Years later, that habit is still the thing I would keep" steps outside
+   the main span to report what happened after. Epilogue ending, a Claude fingerprint.
+   Repair: end inside the span. The last true beat is the one line list.
+
+GATED (looked like findings, are not)
+- "More calls, more posts, more everything" : a three item list, but spoken and announced by
+  rhythm, and the profile clears repetition as how listeners keep up
+- "It is not." as a two word sentence : native to speech, and the profile clears fragments
+- check 9, reader address : not scored, and here the absence is worth a note rather than a
+  finding. A camera script is spoken to someone, and this one never turns to them
+- no citation : native
+
+THEME SPREAD: themes 1, 4 and 6, each carrying a weight 2 hit. Three of seven. Under the
+assessment bar of four, so if this draft came from elsewhere the verdict line would read
+mixed and no origin claim. In deliverable mode the bar does not gate anything and all eight
+findings stand.
+
+READ ALOUD: run once, timed at 46 seconds. Stumbles at "and the excitement is gone" into
+"I used to fill that stretch", where two sentences meet with no breath point. Marked as
+finding 9 in the working copy, not scored, because the profile treats stumbles as findings
+and this one is a delivery fix rather than a text fix.
+
+WHAT IS WORKING
+- Check 7 fires positive. "the excitement is gone" is an explicit state, not a tightening
+  chest. 29 against 8.
+- Check 5 is neutral rather than failing. The speaker is mildly against their past self,
+  which is not full ambivalence but is not clean polarity either.
+- "Some days the list was one line" is the only concrete sentence in the script. Protect it,
+  and build finding 2's repair around it.
+```
+
+**Result: pass.** Three things this case proves. The fingerprint block fires only with MODEL
+known and lands at weight 1, so findings 7 and 8 shift the density without carrying the
+verdict. The spoken profile and the discourse layer disagree productively: finding 4 is a
+surface tell the read-aloud test independently confirms. And the spread line does different
+work in the two modes, gating nothing here while it would have blocked an origin claim.
 
 ## What the tests changed in the skill
 
@@ -632,6 +1116,49 @@ WHAT IS WORKING
 4. Cases 9 and 10 were written after the first eight, on the suspicion that the skill would
    flag anything. Both passed with zero findings. The gate carried them, which is the
    argument for printing the GATED section on every run.
+5. Case 11 showed that density and spread disagree. On raw density the draft was machine at
+   finding 2, before the checks that carry the real evidence had run. Assessment mode now
+   scores spread across the seven measured themes and reports density as secondary.
+6. Case 12 was written to break the new weighting, and did. Three machine-leaning values
+   were present in a draft that is plainly human, and two of the three were high ranked
+   features. Gate question 4 exists because of this case: a feature whose human mean is
+   already high cannot carry a verdict, however high the paper ranks it.
+7. Case 13 exposed that the new machinery had no way to report its own inapplicability. At
+   54 words only three checks are eligible, so the seven theme bar cannot be met by
+   construction, and the run was producing a verdict anyway. Pass 0 now states that
+   assessment mode returns no origin verdict below 60 words, and the verdict line says so
+   instead of printing a number the length cannot support.
+8. Cases 11 and 12 used output fields the contract in Pass 5 did not define: a theme tag on
+   discourse findings, a WEAK label, the structural template block, and a spread line. The
+   tests were demonstrating a format the skill did not specify. Pass 5 now carries all four,
+   plus a MODEL line, which case 14 needs.
+9. Case 14 is the only run where the author is known, and it showed the fingerprint block
+   behaving as intended: two findings at weight 1 that move density without reaching the
+   verdict. It also produced the first case where the surface layer and the read-aloud test
+   independently flag the same span, which is the spoken profile and the discourse layer
+   agreeing rather than competing.
+10. Cases 1 to 10 were rerun under the new contract, which the previous alignment had
+   explicitly not done. Check 10 produced a new finding in cases 4, 6 and 7, and check 4
+   produced one in case 8, so the two additions earn their place on legacy drafts rather
+   than only on drafts written to exercise them. No verdict changed direction.
+11. The rerun made the spread line reproducible, and that required a mapping from the ten
+   checks to the seven themes which did not exist. Without it, two runs of the same draft
+   could report different spreads. Pass 2 now carries the table.
+12. Case 10, a control, got stronger on rerun rather than weaker. Check 10 fires positive on
+   "i knew that when i said it", which the original run could not record because the check
+   did not exist. A new check that only ever adds faults would be a bad check.
+13. Case 4 reaches the bar at 78 words, the shortest text in this file to do so, while case 5
+   at 62 words across eight slides reaches two themes and case 2 at 61 words reaches one.
+   The bar is not simply a length threshold: a caption carries one continuous argument and a
+   deck carries eight fragments, and only the first can fail structurally.
+14. Case 8 reads machine at density 10.4 with a spread of two. Low spread does not mean a
+   clean text. It means the failure is not structural, and the report now says which.
+15. Check 9 never produced a finding in any of fourteen runs. Investigated rather than left
+   as a curiosity, and the cause is structural: its scored half needs a format whose default
+   register is third person, and none of the nine profiles is one. Check 9 is now split in
+   Pass 2, with the inert half labelled inert and the medium-naming half kept as a positive
+   signal. Theme 5 is therefore unreachable as a machine-leaning finding and survives only
+   as a positive, which the Pass 2 table now states.
 
 ## What is still untested
 
@@ -639,6 +1166,37 @@ Formats with no case here: newsletter, podcast description, job posting, product
 description, documentation, chat support reply, video title, thumbnail text, subtitle file,
 press release, proposal, invoice note. The skill's derivation procedure covers them by
 construction, and the skill does not claim measured coverage of them.
+
+Every format profiled in `references/formats.md` now has a run under the current contract.
+All fourteen cases carry a MODEL line, a spread figure, theme tags on every discourse
+finding, and an explicit statement of which checks were ineligible and why. What remains
+untested is listed below and nothing else is claimed.
+
+**Check 9, scored half.** Never fired, in fourteen runs, and cannot fire in any of the nine
+profiles, because all nine are second person or product prose. It is carried on the paper's
+word. Testing it needs a third person format, a case study, a report, a press release or an
+about page, and none of those has a profile here. If one is added, this is the check to run
+first.
+
+**Theme 5.** Unreachable as a machine-leaning finding for the same reason, and kept only as
+a positive signal, so the practical spread ceiling is six of seven and the bar of four is
+drawn from six.
+
+**The fingerprint block.** One run, case 14, one model. The other four models in the paper
+have fingerprint lists this skill does not carry, because the situation where their identity
+is known does not arise here.
+
+**Formats with no profile and no run.** Newsletter, podcast description, job posting,
+product description, documentation, chat support reply, video title, thumbnail text,
+subtitle file, press release, proposal, invoice note. Covered by the derivation procedure at
+the end of `references/formats.md` and by nothing else.
+
+**Language.** Every run in this file is English. The vocabulary layer is English by
+measurement and the skill reports it as not run otherwise.
+
+**Ageing.** No run here is older than September 2026. The surface catalogue is the half that
+decays, and the paper itself records a model release cutting em dash use and fine tuning
+dropping detection from 97 percent to 3.
 
 ## Source alignment, September 2026
 
@@ -664,3 +1222,45 @@ expert humans near perfect) in the false positives file.
 
 No existing case was rerun. The controls in cases 9 and 10 cover none of the new tells,
 so the additions rest on the sources' word only and are untested against human drafts.
+
+## Second alignment against the same paper, September 2026
+
+The entry above says the StoryScope paper was reread in full. It was reread as prose. A
+second pass walked every table, figure and appendix cell instead, and found that the first
+pass had captured almost exactly the numbers the authors chose to narrate in running text,
+and almost none of the numbers that exist only in a table.
+
+Two errors corrected:
+
+1. `discourse-tells.md` read the paper's templating experiment as a claim about how the
+   stories were generated, and concluded that a different writing workflow yields a different
+   tell set. The experiment is about the analysis, not the writing: features induced from raw
+   prose against features induced from structured templates of the same stories. The correct
+   reading is a procedure rule, and it is now the strongest one in the file. Read prose, find
+   prose tells. To reach the discourse layer, build the template first.
+2. The clustering section reported human rarity as two rates, 0.71 against 0.49 and 24.7
+   percent against 7.1 in the rarest decile, and stopped there. Table 13 gives the counts, and
+   they run the other way: 340 human against 487 AI in the rarest tenth, 42 against 41 in the
+   rarest hundredth. Rarity is now stated as a group-level shift that settles nothing about
+   one text.
+
+Added: the remaining 15 of the 30 core features, with human and AI means from Table 16, which
+completes a table that previously held only the rows section 4.1 happens to narrate. The
+paper's own seven theme grouping, now the unit of assessment scoring. The one-dimension-at-a-
+time rule, 95.4 percent feature coverage against 68.4 for a single sweep, with the dropout
+concentrated in revelation and temporal structure. The structural template from Figure 8,
+condensed. The human misclassification floor, 88.5 percent recall on human stories, into
+`false-positives.md`. Two checks the skill did not have, reader address and
+recontextualization, now checks 9 and 10. The Claude fingerprint list, gated behind a known
+model. The centroid geometry, 6.6 against 4.3.
+
+Weights on the discourse layer are new and are this skill's own. They map the paper's core
+score ranking onto the 2, 1, 0 scale the surface layer already used. Before this pass the
+report format printed a weight on discourse findings that nothing in the skill assigned.
+
+Cases 11 to 14 were written for this revision, and cases 1 to 10 were rerun under the new
+contract, which is the difference from the entry above. Every case in this file now carries a
+MODEL line, a spread figure, and a theme tag on every discourse finding. Fifteen numbered
+entries in the section above record what the runs changed.
+The new checks are no longer resting on the source's word alone. Case 12 in particular is the
+first control in this file that carries machine-leaning values and still has to pass.

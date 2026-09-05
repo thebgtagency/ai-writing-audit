@@ -75,6 +75,23 @@ trained annotators agreed with each other less than with the model. And the pape
 related work records expert humans achieving near-perfect accuracy on this task, which
 narrows the "nobody answers it reliably" line to non-expert readers.
 
+## The machine floor, measured
+
+Added September 2026. The same paper puts a number on the best case for a structural reader,
+and it is not a comfortable one. Its narrative-only classifier, purpose-built, trained on
+52,000 stories and evaluated on roughly 5,000 word fiction, classified genuinely human
+stories as human 88.5 percent of the time. Per-class human F1 was 0.886 without style
+features and 0.933 with them.
+
+So about one human text in nine came back as machine written, under conditions far better
+than any audit this skill runs: longer text, a single genre, a trained model rather than a
+reader with a checklist. Nothing about a shorter text, a mixed format, or a human reader
+improves on that.
+
+Two consequences for the output contract. The verdict line never carries more confidence
+than that floor, and in assessment mode the false-positive caution above is not boilerplate.
+It is the expected outcome roughly one time in nine.
+
 Consequence for the output contract: this skill never returns a verdict on authorship. It
 returns a reading verdict, which is a different claim and one that can be checked against
 the text.

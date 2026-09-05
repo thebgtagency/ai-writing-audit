@@ -115,12 +115,16 @@ stays" is not a standard.
 
 **Ruling.** Both, separated by purpose, because they answer different questions.
 
-- Assessing an unfamiliar text: clusters only. A single hit supports nothing. This skill
-  sets its own working bar at several distinct categories, five or more, before an origin
-  claim is reasonable, and the caution about false accusations in
-  `false-positives.md` explains why. A September 2026 recheck of the Wikipedia source
-  found no numeric bar there, so the number is ours, not the source's. If the published
-  guideline this threshold came from is identified, restore the citation.
+- Assessing an unfamiliar text: clusters only. A single hit supports nothing. A September
+  2026 recheck of the Wikipedia source found no numeric bar there, so any threshold is ours,
+  not the source's. Revised the same month: the categories to count are no longer invented
+  either. The StoryScope paper groups its 30 core features into seven measured themes, three
+  machine-leaning and four human-leaning, and those seven are what the bar is now stated
+  against. Findings touching four or more of the seven, with at least one weight 2 hit in
+  each, before an origin claim is reasonable. The seven themes are measured. The number four
+  is still ours. The caution about false accusations in `false-positives.md` explains why the
+  bar sits high, and the machine floor recorded in the same file, one human text in nine
+  misread under the best conditions anyone has measured, is why it does not move down.
 - Cleaning your own draft: fix the single hit if the fix costs nothing. There is no accuracy
   claim at stake, only the text.
 
@@ -171,6 +175,13 @@ interior access.
 **Ruling.** Position B for auditing, Position A retired as a proxy for humanity. The tell is
 the default, not the device. One embodied line is craft. Every feeling arriving as a body
 sensation is the pattern, and lush sensory writing is not evidence of a human hand.
+
+Confidence raised, September 2026, after a full reread of the source table rather than the
+prose that summarizes it. The 38 against 81 gap on embodied emotional expression is the
+widest single separation among all 30 core features in that paper, wider than every other
+categorical row and wider in normalized terms than every scale row. This is the best
+supported ruling in this file, and it is the one that most contradicts what writers are
+taught.
 
 ## 10. Descriptive source, prescriptive tool
 

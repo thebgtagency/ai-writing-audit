@@ -50,26 +50,95 @@ score within one point of each other. Neither layer wins alone.
 From section 4.1 and Table 16. Human value first, AI value second. These are the numbers
 behind the checks, and they show why every check is a rate rather than a switch.
 
-| Feature | Human | AI |
-|---|---|---|
-| Narrator explicitly explains the story's theme | 52% | 77% |
-| Emotion conveyed through physical sensation or bodily metaphor | 38% | 81% |
-| Emotion conveyed by an explicit label | 29% | 8% |
-| Smell-based imagery | 57% | 82% |
-| References a specific named text or author | 47% | 24% |
-| Breaks the fourth wall | 67% | 39% |
-| Addresses the reader directly | 28% | 7% |
-| Morally ambivalent protagonist | 59%, see note | 38%, see note |
-| Resolution driven by protagonist choice | 46% | 69% |
-| Intertextual gestures stay vague allusions | 50% | 72% |
-| No subplots at all | 57% | 79% |
-| Resolution by internal understanding or acceptance | 27% | 47% |
-| Depth of interior access, mean on a 1 to 5 scale | 3.67 | 3.93 |
-| Sensory density, mean | 3.66 | 3.93 |
-| Setting as psychological mirror, mean | 3.58 | 4.07 |
+All 30, in the paper's own seven groups. Rows marked s are means on a 1 to 5 Likert scale,
+o are means over integer codes, and the rest are the share of stories carrying that value.
+Gap is human minus AI. Three features appear twice because the same feature points one way
+on one option value and the other way on another, which is why 33 rows hold 30 features.
+
+**AI-elevated, thematic over-determination**
+
+| Feature | Human | AI | Gap |
+|---|---|---|---|
+| Thematic explicitness and moralizing, s | 3.28 | 3.94 | -0.65 |
+| Moral and philosophical weighting, s | 3.26 | 3.68 | -0.42 |
+| Thematic unity, s | 4.41 | 4.74 | -0.33 |
+| Narratorial thematic commentary, yes | 52% | 77% | -25 |
+| Dialogue function, philosophical debate | 34% | 59% | -25 |
+| Reference explicitness, implicit echoes | 50% | 72% | -22 |
+
+**AI-elevated, sensory and embodied performativity**
+
+| Feature | Human | AI | Gap |
+|---|---|---|---|
+| Emotional expression, embodied | 38% | 81% | -42 |
+| Setting as psychological mirror, s | 3.58 | 4.07 | -0.49 |
+| Environmental and ecological emphasis, s | 2.83 | 3.21 | -0.38 |
+| Sensory modalities, olfactory | 57% | 82% | -26 |
+| Sensory density, s | 3.66 | 3.93 | -0.26 |
+| Depth of interior access, s | 3.67 | 3.93 | -0.26 |
+
+**AI-elevated, structural streamlining**
+
+| Feature | Human | AI | Gap |
+|---|---|---|---|
+| Causal chain continuity, s | 3.92 | 4.20 | -0.28 |
+| Spatial granularity, o | 2.27 | 2.53 | -0.26 |
+| Agency in resolution, protagonist choice | 46% | 69% | -23 |
+| Character introduction, external description | 30% | 52% | -22 |
+| Subplot integration, no subplots | 57% | 79% | -22 |
+| Resolution mode, internal understanding | 27% | 47% | -21 |
+| Pre-threat character investment, s | 2.76 | 2.99 | -0.23 |
+| Opening spatial grounding, o | 2.12 | 2.33 | -0.20 |
+
+**Human-elevated, intertextual richness**
+
+| Feature | Human | AI | Gap |
+|---|---|---|---|
+| Intertextual strategy, explicit named reference | 47% | 24% | +23 |
+| Reference explicitness, balanced mix | 37% | 16% | +21 |
+
+**Human-elevated, reader engagement**
+
+| Feature | Human | AI | Gap |
+|---|---|---|---|
+| Fourth-wall permeability, o | 0.67 | 0.39 | +0.28 |
+| Direct reader address, o | 0.28 | 0.07 | +0.21 |
+
+**Human-elevated, temporal complexity**
+
+| Feature | Human | AI | Gap |
+|---|---|---|---|
+| Depth of recontextualization after surprise, s | 3.28 | 2.95 | +0.34 |
+| Chronological discontinuity, s | 2.40 | 2.12 | +0.28 |
+| Nonlinear framing for delayed disclosure, s | 1.96 | 1.68 | +0.28 |
+| Anachrony intensity, s | 2.58 | 2.31 | +0.27 |
+
+**Human-elevated, narrative diversity**
+
+| Feature | Human | AI | Gap |
+|---|---|---|---|
+| Location variety scope, o | 1.34 | 1.08 | +0.26 |
+| Dialogue-to-narration proportion, s | 2.95 | 2.70 | +0.24 |
+| Subplot integration, thematically parallel | 42% | 21% | +22 |
+| Moral polarity, ambivalent or mixed | 59% | 38% | +21 |
+| Emotional expression, explicit labels | 29% | 8% | +21 |
 
 Note on the ambivalence row: the paper states humans "present morally ambivalent
 protagonists more often (59% vs. 38%)", so the human rate is the 59.
+
+Note on the two reader-engagement rows: Table 16 labels them ordinal means, while the values
+are the same numbers section 4.1 states as percentages of stories, 67 against 39 and 28
+against 7. The prevalence reading is used because that is how the paper's own prose puts it.
+
+Note on the subplot rows: they are not in conflict. Having no second thread at all is the
+machine-leaning value, 57 against 79. Among texts that do have one, running it parallel to
+the main line is the human-leaning value, 42 against 21. So "everything connects" is not the
+tell. "There is only one thing" is.
+
+Note on the three near-tied rows: thematic unity, causal chain continuity, and moral and
+philosophical weighting all sit high or mid for humans too. A hit on one of those is weak
+evidence and cannot carry a verdict alone. Compare with the embodied emotion row, 38 against
+81, which is the widest separation in the table.
 
 Read the theme row first. Humans moralize in 52 percent of stories. The tell is not that a
 text explains its own point, it is the rate at which it does. One explicit takeaway line
@@ -129,12 +198,34 @@ Both facts belong in an audit tool. A word list is worth running because it is c
 catches unedited drafts. It is not worth trusting, because one style pass or one model
 release removes it.
 
-## The pipeline changes the tell set
+## How you read a text decides which tells you find
 
-The corpus stories came from a template-based extraction pipeline, and a direct pipeline
-variant produces a different feature ranking: "comparing the top-20 discriminative
-features, only 6 overlap". A draft produced through a different workflow may carry a
-different tell set, which caps how far any fixed list should be trusted.
+Corrected September 2026. An earlier version of this file read the paper's templating
+experiment as a claim about how the stories were generated and concluded that a different
+writing workflow yields a different tell set. That is not the experiment. The stories were
+generated by giving five models a prompt. The template sits in the analysis, not in the
+writing, and the experiment compared two ways of looking at the same stories.
+
+The paper ran feature discovery twice, once over raw story text and once over structured
+templates of those same stories, "the only difference being whether the comparative analysis
+operates on templates or raw story text". Of the top 20 discriminative features, only 6
+overlap. The raw route returned style-heavy features, named in the paper as humor usage,
+vocabulary register, allusion types, and dominant imagery. The template route returned
+structure-heavy ones: emotional arcs, relationship trajectories, event density, and flashback
+usage.
+
+The operational reading, and it is the strongest procedural result in the paper for a tool
+like this one: an auditor who reads the prose finds prose tells, and calls them structural.
+To reach the discourse layer you have to stop reading the sentences first. Build the
+structural template, mark absent fields null, audit the template, and quote the prose only
+to evidence a finding. The paper prints its own template, and `SKILL.md` carries the
+condensed field list under "Research-backed tells".
+
+A second measured reason to slow the pass down. Applying the features in a single call
+covered 68.4 percent of them; applying them one narrative dimension per call covered 95.4
+percent, and the single-call dropout concentrated in revelation and temporal structure.
+Those two dimensions hold most of the human-leaning checks, so a single sweep does not fail
+evenly. It fails toward the machine verdict.
 
 ## What the paper does not say
 
@@ -258,11 +349,24 @@ drop the check rather than force it.
 | Direct reader address (human 2) | Second person, and a question that expects an answer | Carries, with the caveat below |
 | Chronological discontinuity and anachrony (human 8, 10, 13) | Opening mid scene, telling it out of order, withholding the setup | Carries in any text long enough to have an order. Meaningless below about two sentences |
 | Fourth-wall permeability (human 6) | Naming the medium: "this is a cold message", "you can ignore this" | Carries in messages, where the medium is visible to both sides |
+| Depth of recontextualization after surprise (human 4) | A later fact that changes what an earlier sentence meant. The number that reframes the story above it, the admission that makes the opening read differently | Genre neutral. It is about disclosure order rather than about plot, and any text carrying two facts can put the reframing one second |
+| Subplot integration to thematically parallel (human 7) | A second thread that runs alongside the main one instead of feeding it | Same axis as the no-subplots check, at the other end. Carries wherever a text is long enough to hold two threads |
 
-Caveat on direct reader address: in fiction it is rare and therefore informative. In a
-direct message, a caption, or an ad, second person is the native register and carries no
-signal at all. Use it as a positive signal only in text where third person would have been
-the default.
+Caveat on direct reader address, revised September 2026 after fourteen recorded runs. The
+paper measures two things in one group and only one of them transfers.
+
+Direct reader address is rare in fiction and therefore informative there. In a message, a
+caption, an ad, a script, an email or a product page, second person is the native register,
+so its presence and its absence both carry nothing. No format profiled in `formats.md` has
+third person as its default, which means this half cannot be scored anywhere this skill runs
+and never has been. It is carried on the paper's word, not on a hit.
+
+Naming the medium does transfer, because it is a choice in any format: "this is a cold
+message", "last one from me", "ignore this if it is not live". Run it in the human direction
+only. Presence belongs in WHAT IS WORKING, absence is a note and never a fault.
+
+The consequence for scoring is in `SKILL.md`: theme 5 is reachable only as a positive, so
+the assessment bar of four themes is drawn from six rather than seven.
 
 ## What stays in fiction, do not port it
 
@@ -280,8 +384,20 @@ olfactory variety is how an audit tool loses the reader's trust.
 > for example, Claude produces notably flat event escalation, GPT likes using gossip as a
 > plot mechanism, and Gemini defaults to external character description
 
-Useful as a reminder that tells are model specific and move. Not useful as a check, because
-you rarely know which model produced the draft.
+Useful as a reminder that tells are model specific and move. Not useful as a check in the
+general case, because you rarely know which model produced the draft.
+
+There is one case where you do know, and this skill runs inside it often: a draft the
+assistant running the audit just produced. `SKILL.md` carries the Claude fingerprint list
+under "Research-backed tells" for that case only, weighted 1 and never 2. The reason for the
+lower weight is in the paper's own numbers. Fingerprints come from the six-way task, where
+narrative features reach 68.4 macro-F1, against 93.2 on the binary task. They separate models
+far less reliably than the core features separate human from machine.
+
+Do not run a fingerprint list against a draft of unknown origin. Attributing a text to a
+named model is a stronger claim than this skill makes anywhere else, and the paper's own
+per-class numbers for the three weakest models, 0.55 to 0.60 F1, are close enough to noise
+that the claim would not survive.
 
 ## The clustering result
 
@@ -293,9 +409,32 @@ because the cluster is defined by the absence of oddity. The closing question of
 is not "did I remove the tells" but "is there anything here that another draft would not
 have had".
 
-Numbers behind the clustering: human stories average a rarity percentile of 0.71 against
-0.49 for AI (Cohen's d 0.83), and in the top 10 percent rarest stories humans hold 24.7
-percent against 7.1 for AI. The most confused model cluster is DeepSeek, Gemini, and Kimi,
-and the single most common human misclassification is Human to Kimi (46 stories), which is
-the measured version of the generic-model lesson: the least distinctive output is the
-hardest to sort.
+Numbers behind the clustering, and the caveat that has to travel with them. Human stories
+average a rarity percentile of 0.71 against 0.49 for AI, Cohen's d 0.83, AUC 0.73. Within
+each source, humans are overrepresented in the rare tail: 24.7 percent of human stories fall
+in the rarest 10 percent corpus-wide against 7.1 percent of AI stories.
+
+Corrected September 2026. An earlier version of this file stopped at those two rates, which
+is the flattering half. In raw counts the rare tail is mostly machine written, because there
+are five AI sources and one human one: the rarest 10 percent holds 340 human against 487 AI
+stories, the rarest 5 percent 180 against 234, and the rarest 1 percent 42 against 41. The
+paper says plainly that "AI stories are present throughout" and that in Figure 5 "all
+distributions overlap substantially". At the prompt level the human version is the rarest of
+the six only 57.8 percent of the time, so an AI version is rarer than the human one in more
+than two cases in five.
+
+So oddity shifts the odds and settles nothing about one text. The closing question of an
+audit, is there anything here another draft would not have had, stays a prompt for the
+writer. It never becomes a test, and it is never evidence of a human hand.
+
+The geometry underneath is the part that does hold at the group level. Mean human-to-AI
+centroid distance is 1.6 times the mean AI-to-AI distance, 6.6 against 4.3, and even the
+closest human-AI pair sits farther apart than the most distant AI-AI pair, 6.2 against 6.0.
+Human stories are also more spread out, mean distance to their own centroid 22 percent
+greater than the average AI radius, 33.2 against 27.4.
+
+The most confused model cluster is DeepSeek, Gemini, and Kimi, and the single most common
+human misclassification is Human to Kimi (46 stories), which is the measured version of the
+generic-model lesson: the least distinctive output is the hardest to sort. Kimi carries 3
+fingerprint features against 32 for human writing, and the paper places it "at the generic
+center of the AI distribution with no distinctive narrative choices".
