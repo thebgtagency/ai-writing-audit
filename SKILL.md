@@ -109,8 +109,10 @@ Without samples, run the generic lists and say in the verdict that no sample was
 ### Pass 0. Profile the text
 
 Name the format. Open `references/formats.md` and load its profile. If the format is not
-listed, answer the four questions at the end of that file and write the derived profile
-into the output so the reader can argue with it.
+listed and the audit is a one-off, answer the four questions in section 9 of that file and
+write the derived profile into the output so the reader can argue with it. If the format is
+one the writer works in and will bring back, run "Adapting to a new format" below instead,
+which produces a profile with a silence map and registers it.
 
 One piece can hold two formats. A short video ships as a spoken script plus a written
 caption, and those get different passes: the script gets the spoken profile with the word
@@ -191,11 +193,12 @@ checks in full, weights from "Research-backed tells" below:
    one available.
 9. **Reader address.** Does the text know it is being read. Machine text writes as though no
    one is watching. The check has two halves and they behave differently, so run them apart.
-   The *second person* half is inert in every format this skill profiles, because a message,
-   caption, ad, script, email or page is already written in second person, so its presence
-   and its absence both carry nothing. Score it only in a format whose default register is
-   third person, and none of the nine profiles in `references/formats.md` is one. Across
-   fourteen recorded runs it has never produced a finding, and that is by construction.
+   The *second person* half is silent wherever second person is the native register: a
+   message, caption, ad, script, email or landing page, where its presence and its absence
+   both carry nothing. Score it only in a format whose default register is third person.
+   Profile 12, product description, is the first such profile and case 16 is the first run
+   where this half fired. Question 1 of "Adapting to a new format" is what decides it, so
+   any derived third person format turns it live.
    The *medium naming* half does fire here: "this is a cold message", "last one from me",
    "ignore this if it is not live". It fires in the human direction, so its absence is a
    note and never a fault, and its presence belongs in WHAT IS WORKING.
@@ -224,10 +227,10 @@ Three consequences worth reading off the table. Ten checks cover seven themes, s
 3, 6 and 7 can each be reached by more than one check and a second hit inside a theme adds
 density without adding spread. The three checks eligible below 60 words reach themes 1, 4 and
 7 only, which is the arithmetic behind the rule in Pass 0 that assessment mode has no verdict
-at that length. And theme 5 is reachable only through check 9, whose scored half is inert in
-every format profiled here, so in practice the bar is four themes drawn from six rather than
-seven. That makes the bar harder than it looks, which is the right direction for a threshold
-that gates an origin claim.
+at that length. And theme 5 is reachable only through check 9, whose scored half is silent
+in every second person format, so in those formats the bar is four themes drawn from six
+rather than seven. In a third person format, derived or listed, theme 5 opens and the bar is
+drawn from all seven. Case 16 is the recorded instance.
 
 Do not run the fiction-only features on non-fiction. `references/discourse-tells.md` lists
 which ones stay in fiction and why porting them produces nonsense.
@@ -342,6 +345,9 @@ FINDINGS
 GATED (looked like findings, are not)
 - "<quote>" : <which gate rule cleared it>
 
+SILENCE MAP (derived profiles only, all ten rows, see "Adapting to a new format")
+<check> live | silent : <reason, and which of the six questions or the length rule>
+
 THEME SPREAD: <which of the seven, and whether each carries a weight 2 hit>
 
 WHAT IS WORKING
@@ -358,6 +364,98 @@ machine that finds seven problems in every text regardless of the text.
 Print WHAT IS WORKING before the rewrite. An audit that only subtracts trains the next
 draft toward the safe middle, and the safe middle is where the measured machine cluster
 sits.
+
+## Adapting to a new format
+
+Someone says "I use this for support replies" or "adapt this for our CRM notes" or names a
+niche, a channel, or an automation this file has never heard of. This section is how you
+answer, without inventing anything.
+
+**What adapts:** the length band, which layers run, which catalogue entries are hard flags
+here, which patterns are native here, the pass bar, and the silence map.
+
+**What does not:** the ten checks, the surface catalogue and its weights, the four gate
+questions, the density bands, the seven themes and the bar of four.
+
+A format does not get its own rules. It gets its own answer to which of the fixed rules can
+fire in it, and why the rest cannot. That is the difference between adapting a tool and
+loosening one.
+
+### Start from the nearest listed profile
+
+Open `references/formats.md`. If one of the listed profiles is close, take its hard flags
+and its native list as the starting draft and change only what the six questions below
+change.
+A support reply is an objection reply that the reader asked for. A CRM note is a long page
+with no reader. Borrowing is cheaper and more accountable than deriving from nothing.
+
+Length and channel need no questions. Length sets eligible checks from the Pass 0 table.
+Heard means the spoken override in profile 6 applies in full. Seen means the deck-level
+audit in profile 5. Written once for many readers means the scale pass in profile 2 runs.
+
+### Six questions
+
+Each one changes exactly one check. Answer from the user's declaration, not from a guess.
+
+| Question | Yes | No |
+|---|---|---|
+| Is the default grammatical person third? | Check 9 is live, and theme 5 becomes reachable as a finding | Check 9's scored half is silent, second person is native and carries nothing |
+| Did the reader ask for this text? | An explicit takeaway is native. Check 1 fires only on a takeaway nobody asked for | Check 1 is a hard flag |
+| Is the structure itself the product? | Check 3 is silent, and headings, bullets and inline-header lists are native | Both stay live |
+| Could the writer have known something specific about this reader or subject? | Check 6 runs at full weight | Check 6 runs at weight 1 and measures the format's ceiling rather than the writer's effort. Say so in the report |
+| Is any feeling in scope? | Check 7 is live | Check 7 is silent |
+| Is the order fixed by convention? | Check 8 is silent | Check 8 is live |
+
+If an answer is not in the declaration, ask that one question. Do not pick a value to keep
+moving. A guessed answer produces a profile that looks derived and is not.
+
+If two answers point opposite ways on the same check, the silencing one wins and the
+conflict goes in the silence map rather than being resolved quietly.
+
+### The silence map, required
+
+Print all ten rows. A silent check is a reported result, not an omission, which is the same
+rule the audit already applies to a check that finds nothing.
+
+```
+SILENCE MAP
+1  self-explaining      live | silent   <why, and which question or the length rule>
+2  single track         ...
+3  tidy causality       ...
+4  internal resolution  ...
+5  moral polarity       ...
+6  named reference      ...
+7  emotion handling     ...
+8  order                ...
+9  reader address       ...
+10 recontextualization  ...
+```
+
+A row reading silent with no reason is inadmissible: it means the agent decided rather than
+derived. Below 60 words, seven rows read silent by length, and that is the reason to write.
+
+### Three rules that stop invention
+
+1. Every hard flag names its source: an entry in `references/surface-tells.md`, a check
+   number, or a scale-pass bullet from profile 2. A hard flag citing nothing is struck.
+2. The ten checks may only be marked live or silent. Not added to, removed, renamed, merged
+   or reordered. The four gate questions run unchanged. Weights, bands, themes and the bar
+   are untouched, with the single exception written into question four above.
+3. A native entry either appears in the format-native table in `references/false-positives.md`
+   or follows from one of the six answers, and the profile says which.
+
+### Register it
+
+Print the derived profile and its silence map ahead of the findings, so the reader can argue
+with the profile rather than only with the findings.
+
+If the format will be audited again, add it to `references/formats.md` as the next numbered
+profile and add a worked example to `TESTS.md`, in the same change. A profile with no
+recorded run is a claim the test log does not support.
+
+Adding a profile is not a contract change, so recorded cases stay valid. If a derived profile
+ever forces a new output field, that is a contract change, and every recorded case has to be
+rechecked for that field in the same change.
 
 ## Research-backed tells (arXiv 2604.03136)
 
@@ -508,15 +606,17 @@ This is the group that does not survive the transfer intact, and check 9 in Pass
 for that reason. The paper measured both rows on fiction, where third person is the default
 and turning to the reader is rare enough to mean something. In a message, caption, ad,
 script, email or product page, second person is the native register, so its presence and its
-absence both carry nothing. None of the nine profiles in `references/formats.md` has third
-person as its default, so the second row cannot be scored anywhere this skill currently runs,
-and across fourteen recorded runs it never has been.
+absence both carry nothing. Eight of the nine originally listed profiles have second person
+as their default, which is why this row went unscored for the first fourteen runs. Profile
+12, product description, is third person, and case 16 is the run where the row finally
+fired. Question 1 of "Adapting to a new format" is the switch.
 
 The first row does transfer, because naming the medium is a choice in any format: "this is a
 cold message", "last one from me", "ignore this if it is not live". It runs in the human
 direction only. Its presence goes in WHAT IS WORKING and its absence is a note, never a
-fault. Theme 5 is therefore reachable only as a positive, which is why the practical spread
-ceiling is six themes and not seven.
+fault. In a second person format theme 5 is therefore reachable only as a positive and the
+practical spread ceiling is six. In a third person format both halves run and the ceiling is
+seven.
 
 The paper's line, p.7: "AI writes as though no one is watching."
 

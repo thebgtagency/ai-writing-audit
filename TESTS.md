@@ -1,6 +1,7 @@
 # Test log
 
-Fourteen runs across eight formats, plus three controls. Every claim the skill makes about a
+Sixteen runs across ten formats, plus three controls. Two of the ten formats are derived
+profiles, built by the procedure in SKILL.md under "Adapting to a new format". Every claim the skill makes about a
 format is backed by a run recorded here. Formats not listed here are covered only by the
 derivation procedure in `references/formats.md`, and the skill says so rather than claiming
 coverage it has not tested.
@@ -557,6 +558,14 @@ GATED
   medium. Not scored, because a product page addressing the reader is neither expected nor
   unexpected, and the paper's 67 against 39 was measured on fiction where third person is
   the default
+- check 2, single track : ran, and its finding is the same span as finding 10. Counted once
+- check 5, moral polarity : ran, found nothing. There is no actor in this text to be right
+  or wrong about, which is a property of the format rather than a pass
+- check 7, emotion handling : ran, found nothing. No feeling is in scope on a product page
+- check 8, order : ran, found nothing. There are no events, so there is no order available
+  to subvert. Again a property of the format
+  Added on the September 2026 recheck. The three preceding rows were silent in the original
+  run and unrecorded, which is the failure the silence map now prevents in derived profiles
 
 THEME SPREAD: themes 1, 3, 4 and 6. Four of seven, with a weight 2 hit in 1, 4 and 6 and a
 weak hit in 3. The bar is met on three themes carrying weight 2. This is the legacy case
@@ -920,6 +929,8 @@ WHAT IS WORKING
   explicit state rather than a tightening chest. 29 against 8.
 - Check 3 passes. "That is worse. I know it is worse." is an admitted cost, which breaks the
   chain the machine-leaning value would have kept.
+- Check 8, order, ran and found nothing. The account is told in the order it happened, and a
+  flat order is not a fault on its own. Recorded so all ten checks are accounted for.
 - Roughness to protect: "they worked fine" as a comma splice, "So now there is a form" as a
   plain is-phrase, the repetition of Thursday.
 ```
@@ -1102,6 +1113,269 @@ verdict. The spoken profile and the discourse layer disagree productively: findi
 surface tell the read-aloud test independently confirms. And the spread line does different
 work in the two modes, gating nothing here while it would have blocked an origin claim.
 
+## Case 15. Support reply, a derived profile
+
+The first case run against a profile that did not exist before the audit started. Profile 11
+was derived from the six questions in "Adapting to a new format", starting from profile 3.
+
+**Derivation, recorded before the findings**
+
+Nearest listed profile: 3, objection reply. Same length, same one-to-one shape, same close.
+The six questions changed two things.
+
+- Third person by default: no. Check 9's scored half stays silent.
+- Did the reader ask for this: yes, and this is the difference from profile 3. An explicit
+  takeaway is native here, so check 1 fires only on a lesson nobody asked for.
+- Is the structure the product: no. Check 3 stays live.
+- Could the writer have known something specific: yes, the ticket and the account. Check 6
+  runs at full weight, which is stricter than most formats.
+- Any feeling in scope: yes, the customer is annoyed. Check 7 live.
+- Order fixed by convention: no. Check 8 live.
+
+**Input, 97 words**
+
+> Hi Tom, thank you so much for reaching out and I completely understand your frustration
+> here. I know how important it is to have your exports working reliably.
+>
+> Our team is aware of this issue and is working diligently to resolve it as quickly as
+> possible. In the meantime, I would recommend trying to clear your browser cache, which
+> resolves this for many of our users.
+>
+> We truly appreciate your patience and understanding as we work to improve your experience.
+> Please don't hesitate to reach out if there is anything else I can help with!
+
+**Output**
+
+```
+MODE: deliverable
+FORMAT: support reply, inbound (derived profile 11, from profile 3)
+LENGTH: 97 words        LANGUAGE: English (vocabulary layer: run)
+VOICE SAMPLE: none supplied
+CONFIDENCE: argued transfer, derived profile. Neither source measured a support reply.
+MODEL: unknown
+VERDICT: reads machine (density 8.2 per 100 words, spread 3 of 7 themes)
+
+STRUCTURAL TEMPLATE
+agents: Tom, named. "Our team", unnamed and uncountable.
+events: null. Nothing has happened and nothing is scheduled.
+causality: null. The cache suggestion is not connected to the export failure.
+revelation: null.
+temporal order: "as quickly as possible", "in the meantime". Two spans, neither anchored.
+setting: null.
+
+SILENCE MAP
+1  self-explaining      silent : the reader asked for an answer, so a takeaway is native.
+                        Question 2. Would fire only on a lesson nobody asked for
+2  single track         live
+3  tidy causality       live : structure is not the product here. Question 3
+4  internal resolution  live
+5  moral polarity       live
+6  named reference      live, full weight : the writer had the ticket. Question 4
+7  emotion handling     live : the customer is annoyed and the reply names it. Question 5
+8  order                live : no fixed convention. Question 6
+9  reader address       silent, scored half : second person is the native register.
+                        Question 1. Medium-naming half stays available as a positive
+10 recontextualization  live but silent in fact at 97 words, no second fact placed to
+                        reframe a first
+
+FINDINGS
+1. [discourse, w2, theme 4] Check 6, named reference, at full weight per the derived
+   profile. No ticket number, no version, no date, no export type. The writer had all four.
+   Repair: name the ticket and the build. This is the finding the format exists to catch.
+2. [surface, w2] "Our team is aware of this issue and is working diligently to resolve it as
+   quickly as possible"
+   Tell: vague attribution plus unquantified commitment. Which team, by when.
+   Repair: a date, or "I do not have a date yet" which is also true and better.
+3. [surface, w2] "I completely understand your frustration here" and "We truly appreciate
+   your patience and understanding"
+   Tell: empathy preamble that costs nothing, carried from profile 3. Two of them in 97
+   words, one at each end.
+   Repair: CUT both. The answer is the apology.
+4. [discourse, w2, theme 3] Check 4, internal resolution. The reply closes on the customer
+   feeling looked after rather than on what either party does next.
+   Repair: name the next external step and who owns it.
+5. [surface, w1] "I know how important it is to have your exports working reliably"
+   Tell: restating the customer's problem back as a benefit sentence.
+6. [discourse, w1, theme 1] Check 2, single track. Nothing is conceded. The cache
+   suggestion is offered with no acknowledgement that it probably will not work, since the
+   team already knows the bug is theirs.
+   Repair: say which one it is.
+
+GATED (looked like findings, are not)
+- "Hi Tom", the sign-off, the apology : format-native table in false-positives.md
+- second person throughout : native, and check 9's scored half is silent per the map
+- "I would recommend trying to clear your browser cache" as an instruction : the reader
+  asked for a procedure, so an imperative has a job here
+- check 1, self-explaining : SILENT by question 2. The reply is allowed to state its own
+  point, because that is what the customer asked for. Under profile 3 this same shape would
+  have been a finding, and the derivation is what separates them
+
+THEME SPREAD: themes 1, 3 and 4. Three of seven, one short of the bar, which is the same
+result profile 3 produced on a comparable length. Deliverable mode is unaffected.
+
+WHAT IS WORKING
+- "clear your browser cache" is the one concrete instruction. Keep it, demote it.
+- The reply is addressed to a named person and answers in the first paragraph, structurally.
+  It is the content of that paragraph that fails, not its position.
+
+REWRITE
+Hi Tom, this is our bug, not your cache. Exports over about 5MB have been timing out since
+the 3.2 release on Tuesday, ticket SUP-4471.
+
+The fix is in review and I expect it out this week. I will not promise a day because the
+last one slipped.
+
+Until then, exporting in two halves gets under the limit. If that is not workable for your
+volume, tell me and I will run the export on our side and send you the file.
+```
+
+**Result: pass.** The case exists to prove the derivation does work rather than only being
+described. One question, whether the reader asked for the text, moved check 1 from a hard
+flag to silent, and that single move is the difference between profile 3 and profile 11.
+Every other check kept its weight, its wording and its gate.
+
+## Case 16. Product description, and the first run where check 9 can fire
+
+Profile 12, derived from the six questions. It is the first format in this skill whose
+default register is third person, which is the condition check 9 has been waiting for
+across sixteen runs.
+
+**Derivation, recorded before the findings**
+
+Nearest listed profile: 7, long page, at a shorter band.
+
+- Third person by default: yes. Check 9 is LIVE, and theme 5 is reachable as a finding for
+  the first time in this file.
+- Did the reader ask for this: yes, a shopper opened the page. Check 1 fires only on a
+  lesson nobody asked for, which in this format means a closing line about what owning the
+  thing says about you.
+- Is the structure the product: yes for the spec block. Check 3 is silent and the inline
+  header list is native.
+- Could the writer have known something specific about this reader: no. Check 6 drops to
+  weight 1 and measures the format's ceiling. It can still fire about the object.
+- Any feeling in scope: no. Check 7 silent.
+- Order fixed by convention: no. Check 8 live.
+
+**Input, 104 words**
+
+> The Aurelia Carafe is more than a vessel. It is a statement about how you choose to begin
+> your mornings.
+>
+> Hand-finished by artisans using time-honoured techniques, each piece carries the quiet
+> confidence of objects made to last. The borosilicate body resists thermal shock while the
+> weighted base delivers a reassuring stability that elevates the everyday ritual of pouring.
+>
+> - **Material:** Borosilicate glass
+> - **Capacity:** 1.2L
+> - **Care:** Dishwasher safe
+>
+> In a world of disposable objects, the Aurelia is an invitation to slow down and savour what
+> matters.
+
+**Output**
+
+```
+MODE: deliverable
+FORMAT: product description, catalogue (derived profile 12, from profile 7)
+LENGTH: 104 words        LANGUAGE: English (vocabulary layer: run)
+VOICE SAMPLE: none supplied
+CONFIDENCE: argued transfer, derived profile. Neither source measured catalogue copy.
+MODEL: unknown
+VERDICT: reads machine (density 7.7 per 100 words, spread 4 of 7 themes)
+
+STRUCTURAL TEMPLATE
+agents: null. "Artisans", uncountable and unnamed. No reader, no maker, no owner.
+events: null.
+causality: weighted base -> stability -> elevated ritual. The last link is asserted.
+revelation: null.
+temporal order: null.
+setting: "mornings", "a world of disposable objects". Neither is a place.
+
+SILENCE MAP
+1  self-explaining      live, narrowed : the shopper asked about the object, not about
+                        mornings. Question 2 clears a spec, not a moral
+2  single track         live
+3  tidy causality       silent : the spec block is the product's structure. Question 3
+4  internal resolution  live
+5  moral polarity       live
+6  named reference      live at weight 1 : the writer could not know this reader.
+                        Question 4. Measures the format ceiling, not the writer
+7  emotion handling     silent : no feeling is in scope in catalogue copy. Question 5
+8  order                live : no fixed convention. Question 6
+9  reader address       LIVE, scored half : third person is the default register here, so
+                        turning to the reader is a choice. Question 1. First run in this
+                        file where this half can fire
+10 recontextualization  live
+
+FINDINGS
+1. [surface, w2] "more than a vessel", "a statement about how you choose to begin your
+   mornings", "the quiet confidence of objects made to last", "an invitation to slow down"
+   Tell: significance inflation, four instances in 104 words. The object is tied to a
+   lifestyle instead of described.
+   Repair: CUT all four. The spec block already does the work they claim to do.
+2. [discourse, w2, theme 1] Check 1, self-explaining. "In a world of disposable objects, the
+   Aurelia is an invitation to slow down and savour what matters." A closing line stating
+   what owning the thing means.
+   Repair: CUT. The shopper asked what it is, not what it says about them.
+3. [discourse, w2, theme 5] Check 9, scored half, fired. The description never acknowledges
+   a person deciding whether to buy it. It has one second-person phrase, "how you choose to
+   begin your mornings", and that phrase is about a lifestyle rather than about the
+   decision in front of the reader. Nothing tells them who it is wrong for, what it does
+   not do, or what to check before buying.
+   Repair: one sentence addressed to the person deciding. "It is too heavy to pour
+   one-handed" is that sentence.
+4. [discourse, w1, theme 4] Check 6, named reference at weight 1 per the derived profile.
+   "artisans", "time-honoured techniques" name nobody and nowhere. The format ceiling is
+   low, so this is weight 1, but "hand-finished in Stoke" was available and free.
+   Repair: name the place or the process, or cut the claim.
+5. [discourse, w2, theme 6] Check 10, recontextualization. Nothing later changes an earlier
+   claim. Every sentence restates that the carafe is good.
+   Repair: put the limitation after the claim it qualifies. That is also finding 3's repair.
+6. [surface, w2] "delivers a reassuring stability that elevates the everyday ritual"
+   Tell: promotional register with no fact under it, plus copula avoidance. "The base is
+   weighted so it does not tip" was available.
+7. [surface, w1] "time-honoured", "quiet confidence", "savour what matters"
+   Tell: vocabulary and register, weight 1 each, counted once as a cluster.
+
+GATED (looked like findings, are not)
+- third person and no author : native to a catalogue, from the derived profile
+- the inline-header spec list : native. Check 3 is silent per the map, question 3
+- repeated attribute nouns, material, capacity, care : native, the reader is scanning
+- no named customer : not a finding. Question 4 already dropped check 6 to weight 1 for
+  exactly this reason, and penalising the format twice would be double counting
+- check 7, emotion handling : SILENT per the map. "Reassuring" and "quiet confidence" are
+  register, not a character's feeling, and flagging them under check 7 would be porting a
+  fiction feature into a format that has no interior
+
+THEME SPREAD: themes 1, 4, 5 and 6. Four of seven, and the bar is met. This is the only run
+in this file that reaches theme 5, and it does so because the derived profile made check 9
+live rather than because the draft is worse than the others.
+
+WHAT IS WORKING
+- The spec block is the honest part of this page. Three facts, no adjectives, correctly
+  formatted. Protect it and let it carry more.
+
+REWRITE
+The Aurelia is a 1.2 litre borosilicate carafe with a weighted base, so it does not tip when
+it is half full and does not crack when you pour boiling water into it straight from the
+kettle.
+
+- **Material:** Borosilicate glass
+- **Capacity:** 1.2L
+- **Care:** Dishwasher safe
+
+Two things to check before you buy. It is 900g full, which is more than most people expect,
+and it is too heavy to pour comfortably one-handed. If you want something to leave on a
+tray and pour with both hands, this is it. If you want something to carry around the
+kitchen, buy the 800ml.
+```
+
+**Result: pass, and it closes a gap the test log has carried since the September 2026
+alignment.** Check 9's scored half had never fired in sixteen runs, and the recorded reason
+was that no profile had third person as its default register. Deriving one was the missing
+test, not writing another second-person draft. Theme 5 is reachable after all, and the
+condition is a property of the format rather than of the check.
+
 ## What the tests changed in the skill
 
 1. Case 6 exposed a collision between the rule-of-three check and spoken teaching, where a
@@ -1155,10 +1429,22 @@ work in the two modes, gating nothing here while it would have blocked an origin
    clean text. It means the failure is not structural, and the report now says which.
 15. Check 9 never produced a finding in any of fourteen runs. Investigated rather than left
    as a curiosity, and the cause is structural: its scored half needs a format whose default
-   register is third person, and none of the nine profiles is one. Check 9 is now split in
-   Pass 2, with the inert half labelled inert and the medium-naming half kept as a positive
-   signal. Theme 5 is therefore unreachable as a machine-leaning finding and survives only
-   as a positive, which the Pass 2 table now states.
+   register is third person, and none of the nine profiles was one. Check 9 is now split in
+   Pass 2, with the second person half marked silent and the medium-naming half kept as a
+   positive signal.
+16. Cases 15 and 16 are the first runs against profiles that did not exist when the audit
+   started, both derived by the six questions in "Adapting to a new format". Case 15 shows
+   one answer, whether the reader asked for the text, moving check 1 from a hard flag to
+   silent, which is the entire difference between profile 3 and profile 11.
+17. Case 16 closed the check 9 gap that entry 15 recorded. The missing test was never
+   another second person draft. It was a third person format, and deriving one produced the
+   first firing of check 9's scored half and the first run to reach theme 5. The lesson
+   generalises: a check that cannot fire is telling you which format profile is missing,
+   not that the check is wrong.
+18. Deriving profiles forced one new output block, the silence map, which is a contract
+   change. Scoped to derived profiles only, because listed profiles already state their
+   silenced checks in GATED, and all fourteen earlier cases were checked mechanically for
+   that. No case needed a rerun.
 
 ## What is still untested
 
@@ -1172,15 +1458,18 @@ All fourteen cases carry a MODEL line, a spread figure, theme tags on every disc
 finding, and an explicit statement of which checks were ineligible and why. What remains
 untested is listed below and nothing else is claimed.
 
-**Check 9, scored half.** Never fired, in fourteen runs, and cannot fire in any of the nine
-profiles, because all nine are second person or product prose. It is carried on the paper's
-word. Testing it needs a third person format, a case study, a report, a press release or an
-about page, and none of those has a profile here. If one is added, this is the check to run
-first.
+**Check 9, scored half.** Closed. It fired for the first time in case 16, against derived
+profile 12, whose default register is third person. It remains untested in the other third
+person formats that have no profile here: case study, report, press release, about page.
 
-**Theme 5.** Unreachable as a machine-leaning finding for the same reason, and kept only as
-a positive signal, so the practical spread ceiling is six of seven and the bar of four is
-drawn from six.
+**Theme 5.** Reachable, in third person formats only, and reached once. In a second person
+format it survives only as a positive signal and the practical spread ceiling stays at six
+of seven.
+
+**The derivation procedure itself.** Two profiles derived, 11 and 12, from six questions.
+The questions that have never been answered "yes" in a recorded run are the structure
+question at profile 11 and the order question anywhere, so two of the six changes are
+described rather than demonstrated.
 
 **The fingerprint block.** One run, case 14, one model. The other four models in the paper
 have fingerprint lists this skill does not carry, because the situation where their identity

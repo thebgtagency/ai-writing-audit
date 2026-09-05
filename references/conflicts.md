@@ -284,3 +284,39 @@ replaces that second pass, so the two cannot both be followed on the same text.
 **Ruling.** A tool in this category has to pass its own audit, and the claim has to be
 checkable. This file, the skill file, and the other references are written to the rules they
 set. Where a rule here is a house style choice rather than a finding, the text says which.
+
+## 17. A fixed catalogue against an open set of formats
+
+**Position A.** The rules have to be fixed. A tell catalogue that changes shape per format
+is not a catalogue, it is an opinion generated on demand, and two runs of the same draft
+would not agree.
+
+**Position B.** The formats are not fixed and never will be. Support replies, CRM notes,
+release notes, product descriptions, help articles, whatever a user runs their business on.
+A tool that only audits the formats someone thought of in advance says no to most of the
+work.
+
+**Ruling.** Split what adapts from what does not, and put the split in writing.
+
+Fixed: the ten checks, the surface catalogue, the weights, the four gate questions, the
+density bands, the seven themes, the bar of four. A derived profile may not touch any of it.
+
+Adaptive: the length band, which layers run, which catalogue entries are hard flags in this
+format, which patterns are native in it, the pass bar, and the silence map.
+
+So a format never gets its own rules. It gets its own answer to which of the fixed rules can
+fire in it, and why the rest cannot. The procedure is in `SKILL.md` under "Adapting to a new
+format", and it is six questions, each one changing exactly one check.
+
+Two guards make the split hold rather than merely describe it. Every hard flag in a derived
+profile has to name its source in the fixed catalogue, so a profile cannot introduce a tell
+by asserting one. And every derived profile has to print a silence map covering all ten
+checks, so a check that cannot fire in that format is reported rather than quietly dropped.
+A silent check with no stated reason means the agent decided instead of deriving, and the
+profile is inadmissible.
+
+The residue this leaves is real and worth naming. The six questions were chosen because each
+one silences or changes exactly one check, which makes them checkable, but the choice of
+those six is this skill's judgment and not a measured result. If a format turns up that
+needs a seventh, the honest move is to add it here with its consequence written down, not to
+let one profile improvise.

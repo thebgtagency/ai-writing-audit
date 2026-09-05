@@ -2,7 +2,9 @@
 
 A skill for auditing and repairing text that reads as machine written. One skill, every
 format: a two line direct message, an automated message sequence, an objection reply, a
-caption, a carousel slide, a spoken script, a landing page, an essay, an email.
+caption, a carousel slide, a spoken script, a landing page, an essay, an email. Formats it
+has never heard of are handled by deriving a profile for them, which is the section below on
+adapting it to your own work.
 
 ## What makes it different from a word list
 
@@ -36,6 +38,12 @@ in the same source as having non-trivial error rates and as breaking under parap
 
 So the output is a reading verdict, not an authorship verdict, and the skill says so on
 every run.
+
+## Watch it work
+
+A client direct message, audited and rewritten. 26 seconds.
+
+![Watch it work](docs/demo.gif)
 
 ## Watch it work
 
@@ -78,6 +86,36 @@ skill is for text that already exists. It is not for writing a first draft, and
 `references/conflicts.md` item 14 explains why composing against a tell list makes text
 worse rather than better.
 
+## Adapting it to your own formats
+
+Hand `SKILL.md` and `references/` to any assistant and tell it what you actually write:
+
+> Adapt this skill for our support replies. Run "Adapting to a new format" in SKILL.md, ask
+> me the six questions, and print the silence map.
+
+What happens then is bounded on purpose. A format does not get its own rules. It gets its
+own answer to which of the fixed rules can fire in it, and why the rest cannot.
+
+**Fixed, and a derived profile cannot touch any of it:** the ten discourse checks, the
+surface catalogue and its weights, the four gate questions, the density bands, the seven
+themes and the bar for a verdict.
+
+**Adapted:** the length band, which layers run, which catalogue entries are hard flags in
+your format, which patterns are native to it, the pass bar, and the silence map.
+
+The six questions each change exactly one check. Is the default grammatical person third.
+Did the reader ask for this text. Is the structure itself the product. Could the writer have
+known anything specific here. Is any feeling in scope. Is the order fixed by convention.
+An answer that is not in your description is asked for, not guessed.
+
+Two guards stop an assistant from improvising a profile that merely looks derived. Every
+hard flag has to name its source in the fixed catalogue, so a profile cannot introduce a
+tell by asserting one. And every derived profile prints a silence map covering all ten
+checks, so a check that cannot fire in your format is reported rather than quietly dropped.
+A silent check with no stated reason is inadmissible.
+
+`references/conflicts.md` item 17 records the tension this resolves and what it costs.
+
 ## Files
 
 ```
@@ -85,18 +123,21 @@ SKILL.md                      the audit loop, the modes, the output contract
 references/surface-tells.md   word, punctuation, and formatting catalogue
 references/discourse-tells.md the structural layer, with the measured rates
 references/false-positives.md what not to flag, and confidence by format
-references/formats.md         profiles for nine formats plus a derivation procedure
-references/conflicts.md       sixteen disagreements between the sources, and the rulings
-TESTS.md                      fourteen runs across eight formats, including three controls
+references/formats.md         profiles for ten formats, plus how to derive more
+references/conflicts.md       seventeen disagreements between the sources, and the rulings
+TESTS.md                      sixteen runs across ten formats, including three controls
 ```
 
 ## What it has actually been tested on
 
-Eight formats have a recorded run in `TESTS.md`: direct message, automated sequence,
-objection reply, caption, carousel, spoken script, long page, email. Three controls,
-human-written, come back with zero findings. Two of them are rough. The third is tidy and
-carries three machine-leaning values on purpose, because a tool that only clears messy
-writing has learned the wrong lesson.
+Ten formats have a recorded run in `TESTS.md`: direct message, automated sequence,
+objection reply, caption, carousel, spoken script, long page, email, support reply, product
+description. The last two are derived profiles, built by the procedure below rather than
+written by hand, which is how the procedure is tested rather than only described.
+
+Three controls, human-written, come back with zero findings. Two of them are rough. The
+third is tidy and carries three machine-leaning values on purpose, because a tool that only
+clears messy writing has learned the wrong lesson.
 
 Formats without a recorded run are covered by the four-question derivation procedure at the
 end of `references/formats.md`, and the skill does not claim measured coverage of them.

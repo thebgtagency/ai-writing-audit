@@ -352,21 +352,22 @@ drop the check rather than force it.
 | Depth of recontextualization after surprise (human 4) | A later fact that changes what an earlier sentence meant. The number that reframes the story above it, the admission that makes the opening read differently | Genre neutral. It is about disclosure order rather than about plot, and any text carrying two facts can put the reframing one second |
 | Subplot integration to thematically parallel (human 7) | A second thread that runs alongside the main one instead of feeding it | Same axis as the no-subplots check, at the other end. Carries wherever a text is long enough to hold two threads |
 
-Caveat on direct reader address, revised September 2026 after fourteen recorded runs. The
-paper measures two things in one group and only one of them transfers.
+Caveat on direct reader address, revised September 2026 after sixteen recorded runs. The
+paper measures two things in one group and they transfer differently.
 
 Direct reader address is rare in fiction and therefore informative there. In a message, a
-caption, an ad, a script, an email or a product page, second person is the native register,
-so its presence and its absence both carry nothing. No format profiled in `formats.md` has
-third person as its default, which means this half cannot be scored anywhere this skill runs
-and never has been. It is carried on the paper's word, not on a hit.
+caption, an ad, a script or an email, second person is the native register, so its presence
+and its absence both carry nothing, and this half is silent. In a format whose default
+register is third person it is a choice again and the half is live. Profile 12 in
+`formats.md` is the first such format here and case 16 in `TESTS.md` is the first firing.
 
 Naming the medium does transfer, because it is a choice in any format: "this is a cold
 message", "last one from me", "ignore this if it is not live". Run it in the human direction
 only. Presence belongs in WHAT IS WORKING, absence is a note and never a fault.
 
-The consequence for scoring is in `SKILL.md`: theme 5 is reachable only as a positive, so
-the assessment bar of four themes is drawn from six rather than seven.
+The consequence for scoring is in `SKILL.md`: in a second person format theme 5 is
+reachable only as a positive and the bar of four is drawn from six, while in a third person
+format both halves run and it is drawn from all seven.
 
 ## What stays in fiction, do not port it
 

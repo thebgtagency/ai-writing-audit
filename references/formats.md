@@ -337,3 +337,91 @@ Answer four questions about the text, then run the audit with the answers as the
 
 Write the derived profile into the audit output so the reader can argue with the profile
 rather than only with the findings.
+
+## 10. Deriving a profile for a format not listed here
+
+Section 9 is the fast screen and stays as it is. When the format will be audited more than
+once, run the full procedure in `SKILL.md` under "Adapting to a new format" instead. It
+starts from the nearest profile above, asks six questions that each change exactly one
+check, and requires a silence map naming every check that cannot fire and why.
+
+Nothing in this file is overridden by a derived profile. The ten checks, the surface
+catalogue, the weights, the gate questions, the density bands and the seven theme bar are
+fixed. A derived profile chooses which of them can fire in its format, and says why the rest
+cannot.
+
+A derived profile uses the same five headings as profiles 1 to 8, in the same order, so it
+stays comparable to them:
+
+```
+**Band.**   <words, from the Pass 0 table>
+**Layers.** <which run, and which discourse checks are eligible at that length>
+**Hard flags.** <each one citing surface-tells.md, a check number, or profile 2>
+**Native, never flag.** <each one citing false-positives.md or one of the six answers>
+**Pass bar.** <the one question this format cannot survive failing>
+SILENCE MAP <all ten checks, live or silent, with the reason>
+```
+
+Profiles 11 and up are added here as they are derived and recorded, each with a worked
+example in `TESTS.md`. A profile with no recorded run is a claim the test log does not
+support.
+
+## 11. Support reply, inbound
+
+Derived September 2026. Worked example in `TESTS.md`, case 15.
+
+**Band.** 30 to 200 words.
+
+**Layers.** Surface, full. Discourse at the 60 to 300 band: the format profile's list.
+
+**Hard flags.**
+- Empathy preamble that costs nothing and delays the answer, as in profile 3. The customer
+  asked a question and the first sentence is not answering it.
+- Promotional register inside a support reply, from `surface-tells.md`. Nothing here is
+  being sold and a benefit phrase has no job.
+- Check 4, internal resolution. A reply that closes on the customer understanding rather
+  than on the next thing either party does.
+- Check 6 at full weight. The writer had the ticket, the account and the history, so a
+  reply with no specific is a choice.
+- Vague attribution, from `surface-tells.md`. "Our team is aware of this" without a ticket
+  number, a version, or a date.
+
+**Native, never flag.**
+- Second person and an explicit takeaway. The reader asked, so gate question 2 clears the
+  takeaway line, and check 1 fires only on a lesson nobody asked for.
+- Apology, greeting, sign-off. Format-native table in `false-positives.md`.
+- A numbered list of steps. The reader asked for the procedure.
+- Repeating the customer's own words back once.
+
+**Pass bar.** Could this reply have been sent to a different ticket. If yes, it fails,
+whatever its tone.
+
+## 12. Product description, catalogue
+
+Derived September 2026. Worked example in `TESTS.md`, case 16.
+
+**Band.** 40 to 300 words.
+
+**Layers.** Surface, full. Discourse at the 60 to 300 band. This is the first profile in
+this file whose default register is third person, so check 9 is live here.
+
+**Hard flags.**
+- Significance inflation, from `surface-tells.md`. The most common failure in this format:
+  the object is tied to a trend, a lifestyle or a standard instead of described.
+- Promotional register with no fact under it, from `surface-tells.md`.
+- Check 9, scored half. The text never acknowledges a reader who is deciding. Live here
+  because third person is the default, so turning to the reader is a choice rather than the
+  register.
+- Check 1. A closing line explaining what the product means, in a format nobody asked a
+  lesson from.
+- Check 10. Nothing later changes what an earlier claim meant, so every sentence is the
+  same claim at a different angle.
+
+**Native, never flag.**
+- Third person and no author. Native to a catalogue.
+- Repeated attribute nouns, material, dimension, weight. The reader is scanning for them.
+- A spec list with inline headers. Structure is the product here, so check 3 is silent.
+- No named customer. The writer could not have known who is reading.
+
+**Pass bar.** Take the brand name out. If the description still fits three competing
+products, it is describing a category, not a thing.
