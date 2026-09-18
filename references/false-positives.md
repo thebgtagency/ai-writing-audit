@@ -105,6 +105,15 @@ the text.
 > Detectors can be susceptible to factors such as text modifications (e.g. paraphrasing,
 > markup, and spacing changes) and the use of models not seen during detector training.
 
+Added September 2026, the calibration behind "non-trivial error rates". False negatives run
+to 10 to 40 percent on some tools. The tool generation matters: 2025-and-later tools beat
+2023 tools on clean prose. And no tool is proven on short texts, translated text, or text by
+non-native speakers, which is most of what this skill audits. The protocol: one score is
+never evidence. A consistently high score across tools escalates the text to closer reading.
+A mixed set of scores is low signal and is recorded as low signal. (Wikipedia:Identifying LLM
+unblock requests; Wikipedia:WikiProject AI Cleanup/Guide; Wikipedia:AI or not quiz;
+Artificial intelligence content detection; Wikipedia:Help, I've been accused of using AI!)
+
 ## Human language is drifting toward the machine
 
 > Note, also, that human speech and writing is being influenced by LLMs, and thus they are
@@ -152,6 +161,20 @@ some point the other way.
 The transition word entry is the one most often broken by tools built on this page. A tool
 that flags every "Additionally" is contradicting its own source.
 
+## Evidence weights, the strong tier
+
+The ineffective list above is the weak tier. The strong tier, from the same body of pages:
+fabricated sources, assistant-voice tokens, placeholder residue, and case-generality — a
+text that could have been written to anyone. These can lead a verdict; the weak tier never
+can. The middle furniture — punctuation, bold, lists, markdown, emoji, letter furniture, the
+demand for "concrete" evidence — stays weak and needs company. Wikipedia's own consensus work
+tested two of the middle items and both failed: an August 2025 request for comment declined
+to treat markdown as a consistent indicator of LLM-generated content, and the same month
+declined emoji. That is why they sit in the weak tier here and below the unambiguous signs
+everywhere they appear. (Wikipedia:Speedy deletion, G15's split between unambiguous and
+subjective indicators; Wikipedia:AI or not quiz; Wikipedia:Artificial intelligence,
+discussion timeline.)
+
 ## Signs of human writing, verbatim
 
 The source lists constructions found more often in human writing than in AI writing. When
@@ -190,6 +213,13 @@ Treat a hit here as weak on its own and strong in combination, and note the age 
 if you know it. The page also carries an "update" banner for the most recent models, dated
 August 2026, which is the source telling you its own list runs behind.
 
+Two additions from the same pages, September 2026. The absence of tells is never evidence of
+a human hand: these lists age per model generation, and a clean pass on a rotting checklist
+means less every year. And real-looking citations are now common in model output without
+support behind them, which is why citation existence leads the claim checks in
+`discourse-tells.md`. (Wikipedia:WikiProject AI Cleanup/Guide; Wikipedia:WikiProject AI
+Cleanup.)
+
 ## The date rule
 
 > ChatGPT was launched to the public on November 30, 2022. Although OpenAI had similarly
@@ -199,6 +229,20 @@ August 2026, which is the source telling you its own list runs behind.
 
 If provenance is known and predates that, stop. The audit can still improve the writing; it
 cannot be about machine authorship.
+
+## Two regimes
+
+Added September 2026. Suspicion and admission run on different evidence standards, and a
+finding states which regime it ran in.
+
+Suspicion: the text is questioned and nothing is admitted. Acting on suspicion needs good
+faith plus pattern evidence plus content-side triggers — the finding classes in this skill,
+at density, with the bar of four from `conflicts.md`. One tell is not a charge.
+
+Admission: tool use is stated by the writer or by the record. Then there is nothing left to
+prove and no itemized charge sheet owed; the audit goes straight to what the text is and
+what it needs. (Wikipedia:Yes, you have to follow NOLLM; Wikipedia:Writing articles with
+large language models; Wikipedia:Presumptive removal of AI-generated content.)
 
 ## Format-native patterns, never flag these
 

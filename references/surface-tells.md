@@ -89,6 +89,18 @@ The source records that older models were blatantly positive while newer ones ar
 positive and avoid obvious superlatives. So the current form of this tell is a paragraph of
 mild approval with no fact in it, not the word "best".
 
+### Buzzspeak and puffery, weight 1 at density
+
+Words that characterize the subject instead of describing it: thought leader, influencer,
+cutting-edge, bare "award-winning" with no award named, breathtaking. Two larger shapes
+travel with the words: methodology inflation, a plain process dressed as a system, and
+"moreover" overuse, the essay register leaking into copy. (Wikipedia:Marketing buzzspeak;
+Artificial intelligence in Wikimedia projects.)
+
+Marketing is the native habitat of most of these words, so run it at density like the
+vocabulary list. One hit is a note. A profile built from them, with nothing specific under
+any of them, is the finding.
+
 ### Vague attribution, weight 2
 
 Opinions handed to an unnamed authority, or one source presented as many.
@@ -181,6 +193,12 @@ density check. One instance is a rhetorical choice. Three on a page is a shape.
 
 In spoken hooks the A versus B contrast is a format convention, so demote it there. See the
 spoken profile in `formats.md`.
+
+A fourth shape is the refocus use: "let's focus on X rather than Y", "instead of making
+accusations...". The geometry is the third shape, but the use is specific: it appears right
+after a challenge or an objection and moves attention off it, and one refocus that answers
+nothing is enough to count the pattern as live. (Wikipedia:Signs of AI-generated comments,
+WP:LETSFOCUSON.)
 
 ### Rule of three, weight 1
 
@@ -311,6 +329,29 @@ technical writers use it natively in Obsidian, GitHub, Reddit, Discord, and Slac
 the unmixed form only when the medium renders none of it, and never as the lead finding.
 See the gate row in `false-positives.md`.
 
+### Letter furniture in a medium that has none, weight 2
+
+A subject line sitting inside a direct message or a WhatsApp text is letter furniture
+carried into a chat medium, and it is close to proof that the text moved through a template
+or a chat window. The recorded family is the request-shaped subject line itself: "Request
+for...", "Concerns about...", "Urgent...". Flag at weight 2. (Wikipedia:Signs of
+AI-generated comments, WP:SUBJECTLINE.)
+
+The greeting half is weight 1: a greeting whose register does not match the relationship —
+a letter's "Dear" and full-name formality in a first-touch DM. Email keeps its native
+greeting and sign-off; see profile 8 in `formats.md`. (Wikipedia:Identifying LLM unblock
+requests.)
+
+### Report skeleton in a conversational text, weight 2
+
+Titled sections in title case, or numbered multi-level outlines with 2.1-style subsections,
+inside a format a person writes as dialogue. The shape is a report pasted where a message
+was expected. The markdown-specific version is the entry above; this one fires even when no
+markup survives, because the skeleton is the tell, not the syntax. Its padding form travels
+with it: three named authorities, each with its framework tag in brackets, where one fact
+would have done. (Wikipedia:Signs of AI-generated comments, WP:AISECTION, WP:AIHEADING,
+WP:ITEMIZE; Wikipedia:Identifying LLM unblock requests.)
+
 ## Chat leftovers
 
 These are the highest-precision items in the catalogue. They are not stylistic. They are
@@ -331,7 +372,8 @@ it wrote the text. Mark those as tool use, not authorship.
 ### Assistant register, weight 2
 
 Watch: I hope this helps, Of course!, Certainly!, You're absolutely right!, Would you like
-me to, is there anything else, let me know if, here is a, a more detailed breakdown.
+me to, is there anything else, let me know if, here is a, here is your, as a large language
+model, a more detailed breakdown.
 
 Also: text that explains what the text is about to do. "In this section, we will discuss the
 background information related to the topic."
@@ -381,6 +423,51 @@ Leftovers of a refusal, or text that stops mid-sentence because a generation end
 source lists both as historical, meaning they are rarer now, and both remain conclusive when
 present.
 
+## Assurance and defensiveness tells
+
+Added September 2026 from Wikipedia:Signs of AI-generated comments and Wikipedia:Identifying
+LLM unblock requests (WikiProject AI Cleanup). These families come from talk-page comments,
+which makes them the closest matches in the catalogue to a direct message or a reply: short,
+first-person, written to one reader. Every one is judged by density, and every one collides
+with a genuine human register somewhere, so each entry names its gated case.
+
+### Assurance register, weight 2 at density, weight 1 for one hit
+
+First-person assurances of sincerity, effort and standards, supplied before anyone asked:
+"I assure you that", "I am committed to", "adheres to ... standards", "moving forward,
+I will", "my intention was to". The recorded family is slot-shaped: "I am committed to
+contributing in a ...", "I will ensure that my ___", an apology built from a template with
+the offense left blank. (Wikipedia:Signs of AI-generated comments, WP:AIASSURANCE;
+Wikipedia:Identifying LLM unblock requests.)
+
+Gated case: commitment language is native in a coaching offer, where the commitment is the
+product. One instance doing a real job clears. The finding is the stack — several
+assurances, no fact under any of them.
+
+### Feedback offload, weight 1
+
+Ending by handing scrutiny back instead of answering what was asked: "if there are any
+specific concerns", "happy to address", "welcome any further feedback". The recorded test
+from the source: the difference between this and a conscientious human's reassurance becomes
+obvious once you actually provide the criticism — the machine reassures again instead of
+using it. Weak alone; "happy to answer questions" is native email register. (Wikipedia:Signs
+of AI-generated comments, WP:AIUNSURE.)
+
+### Defensive lexicon, weight 1
+
+Pre-emptive dismissal of an accusation nobody made: speculation, unsubstantiated,
+subjective, accusatory, "concrete evidence", "specific examples" — as deflection, not as
+argument. In a text that was not questioned, this is a template answering a charge.
+(Wikipedia:Signs of AI-generated comments, WP:AIUNPROVEN, WP:CONCRETE.)
+
+### Closing-thanks formulas, weight 1
+
+Formal letter closes in a chat medium: "thank you for your time", "thank you for
+considering my request", and their merged forms. A sign-off is native in email (profile 8)
+and thanks inside a real relationship is just manners; the finding is the application-letter
+close sitting in a first-touch DM. (Wikipedia:Identifying LLM unblock requests, closing
+statements.)
+
 ## Tells the source records as decayed
 
 Kept for old text, not for current drafts. The source marks these as common from roughly
@@ -421,5 +508,8 @@ saying its own list runs behind. Reread it before trusting any era claim.
 
 The tells, word lists, and quoted examples in this file are drawn from the Wikipedia page
 "Signs of AI writing", maintained by WikiProject AI Cleanup, which is published under
-CC BY-SA 4.0. Definitions here are restated in this file's own words. Quoted passages are
+CC BY-SA 4.0. The entries added in September 2026 are drawn from the additional WikiProject
+AI Cleanup pages named inside those entries: Signs of AI-generated comments, Identifying LLM
+unblock requests, Marketing buzzspeak, and Artificial intelligence in Wikimedia projects.
+Definitions here are restated in this file's own words. Quoted passages are
 marked as quotations. Reuse of those passages carries the same licence.

@@ -439,3 +439,97 @@ human misclassification is Human to Kimi (46 stories), which is the measured ver
 generic-model lesson: the least distinctive output is the hardest to sort. Kimi carries 3
 fingerprint features against 32 for human writing, and the paper places it "at the generic
 center of the AI distribution with no distinctive narrative choices".
+
+## Claim and source checks
+
+Added September 2026 from the WikiProject AI Cleanup pages named below. These are
+document-level reads like the layer above, but what they audit is the text's claims rather
+than its narrative shape, and no phrase list can run them. They run wherever a text makes a
+checkable claim — a landing page citing a study, a caption quoting a number, a script naming
+a client result — and they are silent in a bare message with no claims in it. Each check is
+also a repair instruction: the repair for a failed claim is the true claim or the cut, never
+a softer wording.
+
+### Tone-content mismatch
+
+Authority and confidence outrunning the specificity delivered. The text sounds certain about
+things it never names; read the confidence against the count of named facts. (Wikipedia:The
+LLM-written ANI report.)
+
+### Bulk-claim stacking
+
+Dozens of plausible claims at once, none load-bearing. Volume is doing the work evidence
+should do, and no single claim survives being picked up and checked. (Wikipedia:The
+LLM-written ANI report.)
+
+### Register shift against the writer's baseline
+
+Sudden formality or fluency measured against the writer's other work, plus the tool excuse
+that travels with it — grammar-tool rewriting offered as the cause of the shift. Needs a
+corpus: with no sample of the writer's other text, this check reports not run instead of
+guessing. (Wikipedia:Identifying LLM unblock requests.)
+
+### Unrelated support
+
+The proof point does not match the claim's topic. The recorded case: a fact about beetles
+supporting a computer-science claim. Read claim and support side by side; a true fact about
+the wrong subject is not support. (Wikipedia:WikiProject AI Cleanup; Wikipedia:Case against
+LLM-generated articles, the beetle case.)
+
+### Citation existence
+
+Every cited source gets resolved: the link opens, the author exists, the identifier checks
+out. Fabricated references are the strong end of this layer — dead links, invented authors,
+DOIs and ISBNs that do not resolve. Archive-check a link before declaring it dead. Scope
+note: the coverage map of 2026-09-10 marked the Signs page's citation formattery as
+Wikipedia-only, and it is; this is the different thing, whether the source behind a claim
+exists, and it runs on any text that cites anything. (Wikipedia:Speedy deletion, G15
+non-existent or nonsensical references; Wikipedia:Case against LLM-generated articles;
+Wikipedia:Large language models.)
+
+### Temporality
+
+Dates that cannot be true: news cited from before the event happened, edition years older
+than the book, a testimonial older than the business. (Wikipedia:Speedy deletion, G15.)
+
+### Original-source tracing
+
+The cited outlet is an aggregator or an AI-generated feed carrying someone else's reporting
+— the recorded examples are the MSN and Yahoo News main pages. Trace the claim to the
+original source before treating it as sourced. (Wikipedia:Reliable sources, WP:NEWSAGG.)
+
+### Source provenance
+
+The cited source is itself machine-written or AI-published content. Sources produced by LLMs
+are carried as generally unreliable by origin, and a real-looking study quoted by a
+real-looking site can still be phantom, reproduced by a professional from chatbot output.
+(Wikipedia:Reliable sources, WP:RSML; Wikipedia:Reliable sources/Perennial sources,
+WP:RSPLLM; Wikipedia:Large language models, sources section.)
+
+### Synthesis drift
+
+The conclusion is not stated by any single cited source: each source covers a part, and the
+text assembles a stronger claim none of them makes. Run it per claim — open the source, find
+the sentence that states it. (Wikipedia:LLMs are bad search engines; Wikipedia:Large
+language models.)
+
+### Novelty and verbatim
+
+Quotations, lyrics and passages that exist nowhere. Snippet-search the quoted words: a real
+quotation returns the original, an invented one returns only copies of the text that coined
+it. Coincidental duplication is the gated case, not the finding. (Wikipedia:Large language
+models and copyright.)
+
+### Named-list accuracy
+
+Hallucinated enumerations: the methodology named as a triad with one wrong member, the award
+list with an invented entry, the cited shortcut that never existed. Enumerate and verify
+every member of every named list. (Wikipedia:Identifying LLM unblock requests;
+Wikipedia:Signs of AI-generated comments, WP:AISHORTCUT.)
+
+### Model-summary substitution
+
+The text is a restyled model summary of a source rather than writing from it. Compare against
+the actual source: the tell is that nothing in the text is absent from the source, and the
+structure is the source's own. (Wikipedia:Responsibly using large language models;
+Wikipedia:WikiProject AI Cleanup/Guide.)
